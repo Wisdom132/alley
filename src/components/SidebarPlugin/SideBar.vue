@@ -43,13 +43,13 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Paper Dashboard"
+      default: "Alley.ng"
     },
     backgroundColor: {
       type: String,
       default: "black",
       validator: value => {
-        let acceptedValues = ["white", "black", "darkblue"];
+        let acceptedValues = ["white", "black", "darkblue","blue"];
         return acceptedValues.indexOf(value) !== -1;
       }
     },
