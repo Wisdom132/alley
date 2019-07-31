@@ -3,7 +3,6 @@
     <div class="row mt-4">
       <div class="col-md-4">
         <figure class="card card-product shadow" style="width:18rem">
-          <span class="badge-new"> NEW </span>
           <div class="img-wrap">
             <img
               src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
