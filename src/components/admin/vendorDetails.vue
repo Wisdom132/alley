@@ -1,5 +1,5 @@
 <template>
-  <card class="card-user col-md-8">
+  <card class="card-user col-md-8 offset-md-2">
     <div slot="image">
       <img src="@/assets/img/background.jpg" alt="...">
     </div>
