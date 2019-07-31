@@ -39,7 +39,7 @@
                 <span class="currency">NGN #</span>
                 <span class="num">20,000</span>
               </var>
-              <span>/per month</span>
+              <span>/per annum</span>
             </div>
             <!-- price-detail-wrap .// -->
             <dl>
@@ -74,7 +74,7 @@
               </div>
             </div>
             <hr />
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Request</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaluser">Request</button>
             <!-- short-info-wrap .// -->
           </article>
           <!-- card-body.// -->

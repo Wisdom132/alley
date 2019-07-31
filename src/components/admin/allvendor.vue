@@ -19,7 +19,7 @@
       <td>{{vendor.l_name}}</td>
       <td>{{vendor.email}}</td>
       <td>{{vendor.phone}}</td>
-      <td><button class="btn btn-primary">View</button></td>
+      <td><router-link class="btn btn-primary" to="/admin/vendor">View</router-link></td>
 
 
     </tr>

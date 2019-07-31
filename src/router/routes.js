@@ -15,6 +15,7 @@ import products from "@/pages/AdminPages/products.vue";
 import orders from "@/pages/AdminPages/orders.vue";
 import users from "@/pages/AdminPages/users.vue";
 import vendors from "@/pages/AdminPages/Vendors.vue";
+import uniqueVendor from "@/pages/AdminPages/uniqueVendor"
 
 
 // vendor pages
@@ -63,6 +64,16 @@ const routes = [
         path: "/admin/vendors",
         name: "vendors",
         component: vendors
+      },
+      {
+        path: "/admin/vendors",
+        name: "vendors",
+        component: vendors
+      },
+      {
+        path: "/admin/vendor",
+        name: "uniqueVendor",
+        component: uniqueVendor
       },
       
     ]
