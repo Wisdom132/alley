@@ -66,11 +66,11 @@
             <hr />
             <div class="row">
               <div class="col-sm-5">
-              Phone:  08096650047
+              Phone:<pre>08096650047</pre>
             
               </div>
               <div class="col-sm-7">
-              Email:Wisdomekpot@gmail.com
+              Email:<pre>admin@alley.com</pre>
               </div>
             </div>
             <hr />

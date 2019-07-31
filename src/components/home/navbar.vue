@@ -17,29 +17,37 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <router-link class="nav-link" to="/">
                 Home
-                <span class="sr-only">(current)</span>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <router-link class="nav-link" to="/product">Products</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalsignup">Sign up</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+    <login />
+    <signup />
   </div>
 </template>
 
 <script>
-export default {};
+import login from '@/components/home/login'
+import signup from '@/components/home/signup'
+
+export default {
+  components:{
+    login,signup
+  }
+};
 </script>
 
 <style>
