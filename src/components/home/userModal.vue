@@ -13,25 +13,25 @@
         
 <div class="card">
 <article class="card-body">
-<form>
+<form @submit.prevent="userRegister">
 	<div class="form-row">
 		<div class="col form-group">
 			<label>First name</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" v-model="users.f_name" placeholder="">
 		</div> 
 		<div class="col form-group">
 			<label>Last name</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" v-model="users.l_name" placeholder="">
 		</div>
 	</div> 
 	<div class="form-row">
 		<div class="col form-group">
 			<label>Email</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" v-model="users.email" placeholder="">
 		</div> 
 		<div class="col form-group">
 			<label>Phone</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" v-model="users.phone" placeholder="">
 		</div>
 	</div> 
 	<div class="form-group">
@@ -46,7 +46,7 @@
 	</div> 
     <div class="form-group col-md-12">
 		  <label>Location</label>
-		  <input type="text" class="form-control">
+		  <input type="text" v-model="users.location" class="form-control">
 		</div> 
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Register  </button>
@@ -68,8 +68,30 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-
+	data() {
+		return {
+			users:[]
+		}
+	},
+	methods: {
+		userRegister() {
+			let newUser = {
+				f_name:this.users.f_name,
+				l_name:this.users.l_name,
+				email:this.users.email,
+				phone:this.users.phone,
+				location:this.users.location,
+			}
+	axios.post('http://localhost:3000/user/signin',newUser)
+     .then(response => {
+      console.log(response)
+    }).catch(err=> {
+      console.log({err:err});
+    })
+		}
+	}
 }
 </script>
 

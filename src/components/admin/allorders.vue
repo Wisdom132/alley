@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="order in orders" :key="order.name">
+    <tr v-for="order in orders" :key="order">
       <td>{{order.product_name}}</td>
       <td>{{order.vendor_name}}</td>
       <td>{{order.vendor_email}}</td>

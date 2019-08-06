@@ -14,30 +14,30 @@
 <div class="card">
 
 <article class="card-body">
-<form>
+<form @submit.prevent="onSubmit">
 	<div class="form-row">
 		<div class="col form-group">
 			<label>First name</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" placeholder="" v-model="register.f_name">
 		</div>
 		<div class="col form-group">
 			<label>Last name</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" placeholder="" v-model="register.l_name">
 		</div>
 	</div>
     <div class="form-row">
 		<div class="col form-group">
 			<label>Email</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" placeholder="" v-model="register.email">
 		</div>
 		<div class="col form-group">
 			<label>Phone</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" placeholder="" v-model="register.phone">
 		</div>
 	</div>
 	<div class="form-group">
 		<label>Address</label>
-		<input type="email" class="form-control" placeholder="">
+		<input type="text" class="form-control" placeholder="" v-model="register.address">
 		<small class="form-text text-muted">We'll never share your address with anyone else.</small>
 	</div> <!-- form-group end.// -->
 	<div class="form-group">
@@ -52,16 +52,16 @@
 	</div>
 		<div class="col-md-12 form-group">
 			<label>Agency</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" placeholder="" v-model="register.agency">
 		</div>
 		<div class="col-md-12 form-group">
 			<label>Agency Address</label>
-		  	<input type="text" class="form-control" placeholder="">
+		  	<input type="text" class="form-control" placeholder="" v-model="register.agency_address">
 		</div>	
 	<div class="form-row">
 		<div class="col form-group">
 			<label>Create Password</label>
-		  	<input type="password" class="form-control" placeholder="">
+		  	<input type="password" class="form-control" placeholder="" v-model="register.password">
 		</div>
 		<div class="col form-group">
 			<label>Confirm Password</label>
@@ -88,8 +88,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-
+ data() {
+	 return {
+		register: {},
+      errors: []
+	 }
+ },
+ methods: {
+    onSubmit () {
+      axios.post(`http://localhost:3000/vendor/signin`, this.register)
+      .then(response => {
+        console.log(response)
+        this.$router.push({
+          path: "/login"
+        })
+      })
+      .catch(e => {
+        console.log(e)
+        this.errors.push(e)
+      })
+    },
+  }
 }
 </script>
 

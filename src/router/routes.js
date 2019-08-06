@@ -6,6 +6,7 @@ import NotFound from "@/pages/NotFoundPage.vue";
 import home from '@/pages/home.vue'
 import homeProduct from '@/pages/homeProduct'
 import uniqueProduct from '@/components/home/uniqueProduct'
+import login from '@/pages/login'
 
 // Admin pages
 import Dashboard from "@/pages/AdminPages/Dashboard.vue";
@@ -74,7 +75,7 @@ const routes = [
         path: "/admin/vendor",
         name: "uniqueVendor",
         component: uniqueVendor
-      },
+      }
       
     ]
   },
@@ -102,10 +103,11 @@ const routes = [
         path: "/vendor/addproduct",
         name: "VendorAdd",
         component: VendorAdd
-      },
+      }
     ]
   },
   { path: "*", component: NotFound },
+  { path: "/login", component: login, name:'login'},
   {
     path:'/',
     name:'home',
@@ -117,7 +119,7 @@ const routes = [
     component:homeProduct
   },
   {
-    path:'/uniqueProduct',
+    path:'/uniqueProduct/:id',
     name:'uniqueProduct',
     component:uniqueProduct
   }

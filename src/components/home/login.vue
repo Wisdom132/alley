@@ -9,24 +9,27 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+       <div v-if="errors && errors.length">
+        <div v-for="error of errors" :key="error">
+<div class="alert alert-danger" role="alert">
+  {{error.message}}
+</div>        </div>
+      </div>
       <div class="modal-body">
 
 <div class="card">
 <article class="card-body">
-	 <form>
+	 <form @submit="onSubmit">
     <div class="form-group">
     	<label>Your email</label>
-        <input name="" class="form-control" placeholder="Email" type="email">
+        <input name="" class="form-control" v-model="login.email" placeholder="Email" type="email">
     </div> 
     <div class="form-group">
     	<a class="float-right" href="#">Forgot?</a>
     	<label>Your password</label>
-        <input class="form-control" placeholder="******" type="password">
+        <input class="form-control" v-model="login.password" placeholder="******" type="password">
     </div>
     <div class="form-group"> 
-    <!-- <div class="checkbox">
-      <label> <input type="checkbox"> Save password </label>
-    </div>  -->
     </div> 
     <div class="form-group">
         <button type="submit" class="btn btn-primary"> Login  </button>
@@ -45,9 +48,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-    components:{
-        
+    data() {
+      return {
+        login:{},
+        errors:[]
+      }
+    },
+    methods: {
+      onSubmit (evt) {
+      evt.preventDefault()
+      axios.post(`http://localhost:3000/vendor/login`, this.login)
+      .then(response => {
+        localStorage.setItem('jwtToken', response.data.token)
+        this.$router.push({
+           path: "/vendor",
+        })
+      })
+      .catch(e => {
+        console.log(e)
+        this.errors.push(e)
+      })
+    },
     }
 }
 </script>

@@ -24,8 +24,11 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/product">Products</router-link>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Login</a>
+            </li> -->
+            <li class="nav-item">
+              <router-link class="nav-link" to="/login">Login</router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalsignup">Sign up</a>
@@ -34,18 +37,17 @@
         </div>
       </div>
     </nav>
-    <login />
     <signup />
   </div>
 </template>
 
 <script>
-import login from '@/components/home/login'
+// import login from '@/pages/login'
 import signup from '@/components/home/signup'
 
 export default {
   components:{
-    login,signup
+signup
   }
 };
 </script>

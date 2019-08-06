@@ -13,7 +13,7 @@
                 :data-index="index"
                 :key="index"
               >
-                <img @click="open($event)" class="img-fluid mt-5" :src="n.url" />
+                <img @click="open($event)" class="" :src='`http://localhost:3000/${n.path}`'/>
               </div>
             </div>
             <!-- slider-product.// -->
@@ -24,7 +24,7 @@
                 :data-index="index"
                 :key="index"
               >
-                <img @click="open($event)" :src="n.url" />
+                <img @click="open($event)" class="img-fluid" :src='`http://localhost:3000/${n.path}`'/>
               </div>
             </div>
           </article>
@@ -32,12 +32,12 @@
         <aside class="col-sm-6 border">
           <article class="card-body mt-2">
             <!-- short-info-wrap -->
-            <h3 class="title mb-3">Two Bed Room Flat</h3>
+            <h3 class="title mb-3">{{product.name}}</h3>
 
             <div class="mb-3">
               <var class="price h3 text-primary">
                 <span class="currency">NGN #</span>
-                <span class="num">20,000</span>
+                <span class="num">{{product.price}}</span>
               </var>
               <span>/per annum</span>
             </div>
@@ -54,13 +54,13 @@
             </dl>
             <dl class="row">
               <dt class="col-sm-3">Street</dt>
-              <dd class="col-sm-9">Uyo</dd>
+              <dd class="col-sm-9">{{product.street}}</dd>
 
               <dt class="col-sm-3">City</dt>
-              <dd class="col-sm-9">Uyo</dd>
+              <dd class="col-sm-9">{{product.city}}</dd>
 
               <dt class="col-sm-3">State</dt>
-              <dd class="col-sm-9">Akwa Ibom</dd>
+              <dd class="col-sm-9">{{product.state}}</dd>
             </dl>
             <!-- rating-wrap.// -->
             <hr />
@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import userModal from '@/components/home/userModal'
 import fancyBox from "vue-fancybox";
 import navbar from '@/components/home/navbar'
@@ -95,32 +96,34 @@ export default {
   },
   data() {
     return {
+      product:[],
+      file:'',
       imageList: [
         {
           width: 601,
           height: 1024,
-          url:
-            "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        },
-        {
-          width: 601,
-          height: 1024,
-          url:
-            "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        },
-        {
-          width: 601,
-          height: 1024,
-          url:
-            "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         }
+        
       ]
     };
   },
   methods: {
     open(e) {
       fancyBox(e.target, this.imageList);
+    },
+     getProduct(id) {
+       axios.get('http://localhost:3000/products/'+id)
+       .then(response => {
+        this.imageList = response.data.files
+         this.product = response.data
+         console.log(this.imageList)
+       }).catch(err=> {
+         console.log(err)
+       })
     }
+  },
+  created() {
+    this.getProduct(this.$route.params.id);
   }
 };
 </script>

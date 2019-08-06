@@ -1,140 +1,147 @@
 <template>
-    <div class="row">
-        <div class="col-md-12">
-            <form @submit.prevent>
-                <div class="row">
-    <card class="card col-md-8" title="Edit Profile">
+  <div class="row">
+    <div class="col-md-12">
+      <form @submit.prevent="addProduct" enctype="multipart/form-data">
         <div class="row">
-          <div class="col-md-5">
-            <fg-input type="text"
-                      label="Name"
-                      :disabled="false"
-                      placeholder="Bungalow"
-                      >
-            </fg-input>
-          </div>
-          <div class="col-md-3">
-            <fg-input type="number"
-                      label="Amount per Month"
-                      placeholder="#30,000"
-                      >
-            </fg-input>
-          </div>
-          <div class="col-md-3">
-            <fg-input type="text"
-                      label="Category"
-                      placeholder="One Bed room flat"
-                      >
-            </fg-input>
-          </div>
-        </div>
+          <card class="card col-md-8" title="Edit Profile">
+            <div class="row">
+              <div class="col-md-5">
+                <fg-input type="text" label="Name" :disabled="false" placeholder="Bungalow" v-model="products.name"></fg-input>
+              </div>
+              <div class="col-md-3">
+                <fg-input type="number" label="Amount per Month" placeholder="#30,000" v-model="products.price"></fg-input>
+              </div>
+              <div class="col-md-3">
+                <fg-input type="text" label="Category" placeholder="One Bed room flat" v-model="products.category"></fg-input>
+              </div>
+            </div>
 
-        <div class="row">
+            <div class="row">
+              <div class="col-md-4">
+                <fg-input type="text" label="Street" placeholder="atan Street" v-model="products.street"></fg-input>
+              </div>
+              <div class="col-md-4">
+                <fg-input type="text" label="City" placeholder="Uyo" v-model="products.city"></fg-input>
+              </div>
+              <div class="col-md-4">
+                <fg-input type="text" label="state" placeholder="Akwa ibom" v-model="products.state"></fg-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <fg-input
+                  type="text"
+                  label="Features"
+                  placeholder="Constant Power Supply,Water,Kitchen"  v-model="products.features"
+                ></fg-input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Details</label>
+                  <textarea
+                    rows="5"
+                    class="form-control border-input"
+                    placeholder="Decription of this Product"
+                    v-model="products.description"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary" type="submit">Add Product</button>
+            </div>
+            <div class="clearfix"></div>
+          </card>
           <div class="col-md-4">
-            <fg-input type="text"
-                      label="Street"
-                      placeholder="atan Street"
-                      >
-            </fg-input>
-          </div>
-          <div class="col-md-4">
-            <fg-input type="text"
-                      label="City"
-                      placeholder="Uyo"
-                      >
-            </fg-input>
-          </div>
-          <div class="col-md-4">
-            <fg-input type="text"
-                      label="state"
-                      placeholder="Akwa ibom"
-                      >
-            </fg-input>
+            <card title="Add Images">
+              <div class="row">
+                <div class="col-md-12">
+                  <input  type="file" name="productImage" ref="files" @change="selectFiles()" id="files" class="form-control" multiple />
+                  <div class="field">
+                    <div v-for="(file,index) in files" :key="index">
+                      <div class="pt-2 pb-2">{{file.name}}<br> 
+                      <span v-if="file.invalidMessage" 
+                      class="text-danger">&nbsp; {{file.invalidMessage}}</span>
+                       <button @click.prevent="files.splice(index,1);uploadFiles.splice(index,1)" class="btn btn-danger btn-sm float-right">del</button></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </card>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <fg-input type="text"
-                      label="Features"
-                      placeholder="Constant Power Supply,Water,Kitchen"
-                      >
-            </fg-input>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label>Details</label>
-              <textarea rows="5" class="form-control border-input"
-                        placeholder="Decription of this Product"
-                        >
-
-              </textarea>
-            </div>
-          </div>
-        </div>
-        <div class="text-center">
-          <p-button type="info"
-                    round
-                    @click.native.prevent="updateProfile">
-            Add Product
-          </p-button>
-        </div>
-        <div class="clearfix"></div>
-    </card>
-    <div class="col-md-4">
-        <card title="Add Images">
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="file" class="form-control">
-          </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="file" class="form-control">
-          </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="file" class="form-control">
-          </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="file" class="form-control">
-          </div>
-            </div>
-        </card>
-    </div>
-</div>
       </form>
-        </div>
     </div>
+  </div>
 </template>
 <script>
+import axios from 'axios';
+import _ from 'lodash';
 export default {
   data() {
     return {
-      user: {
-        company: "Paper Dashboard",
-        username: "michael23",
-        email: "",
-        firstName: "Chet",
-        lastName: "Faker",
-        address: "Melbourne, Australia",
-        city: "Melbourne",
-        postalCode: "",
-        aboutMe: `We must accept finite disappointment, but hold on to infinite hope.`
-      }
+      files:[],
+      uploadFiles:[],
+      products:[],
     };
   },
   methods: {
-    updateProfile() {
-      alert("Your data: " + JSON.stringify(this.user));
-    }
+    selectFiles() {
+      const files = this.$refs.files.files;
+      console.log(this.$refs.files.files)
+      this.uploadFiles = [...this.files, ...files];
+
+      this.files = [
+        ...this.files,
+        ..._.map(files,file => ({
+          name:file.name,
+          size:file.size,
+          type:file.type,
+          invalidMessage:this.validate(file)
+        }))
+      ]
+      
+    
+    },
+    validate(file) {
+      const MAX_SIZE = 200000;
+      const allowedTypes = ["image/jpeg","image/png","image/svg"];
+
+      if(file.size > MAX_SIZE) {
+        return `MAX size ${MAX_SIZE/1000}kb`;
+      }
+      if(!allowedTypes.includes(file.type)) {
+        return 'This is not an image';
+      }
+      return
+    },
+   addProduct() {
+     let formData = new FormData();
+     _.forEach(this.uploadFiles,file=> {
+       if(this.validate(file)==="") {
+         formData.append('files',file);
+       }
+     })
+    formData.append('name', this.products.name);
+    formData.append('price', this.products.price);
+    formData.append('category', this.products.category);
+    formData.append('street', this.products.street);
+    formData.append('city', this.products.city);
+    formData.append('state', this.products.state);
+    formData.append('feature', this.products.feature);
+    formData.append('description', this.products.description);
+     axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwtToken')
+     axios.post('http://localhost:3000/products',formData)
+     .then(response => {
+      console.log(response)
+    }).catch(err=> {
+      console.log(err);
+    })
+   }
   }
 };
 </script>
