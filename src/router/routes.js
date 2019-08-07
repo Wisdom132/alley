@@ -3,10 +3,10 @@ import vendorLayout from "@/layout/dashboard/vendorLayout.vue";
 
 // GeneralViews
 import NotFound from "@/pages/NotFoundPage.vue";
-import home from '@/pages/home.vue'
-import homeProduct from '@/pages/homeProduct'
-import uniqueProduct from '@/components/home/uniqueProduct'
-import login from '@/pages/login'
+import home from '@/pages/home.vue';
+import homeProduct from '@/pages/homeProduct';
+import uniqueProduct from '@/components/home/uniqueProduct';
+import login from '@/pages/login';
 
 // Admin pages
 import Dashboard from "@/pages/AdminPages/Dashboard.vue";
@@ -16,7 +16,10 @@ import products from "@/pages/AdminPages/products.vue";
 import orders from "@/pages/AdminPages/orders.vue";
 import users from "@/pages/AdminPages/users.vue";
 import vendors from "@/pages/AdminPages/Vendors.vue";
-import uniqueVendor from "@/pages/AdminPages/uniqueVendor"
+import uniqueVendor from "@/pages/AdminPages/uniqueVendor";
+import productDeatils from "@/pages/AdminPages/uniqueProduct";
+import uniqueOrder from "@/pages/AdminPages/uniqueOrder"
+
 
 
 // vendor pages
@@ -52,6 +55,11 @@ const routes = [
         component: products
       },
       {
+        path: "/productDeatils/:id",
+        name: "productDeatils",
+        component: productDeatils
+      },
+      {
         path: "/admin/orders",
         name: "orders",
         component: orders
@@ -72,11 +80,15 @@ const routes = [
         component: vendors
       },
       {
-        path: "/admin/vendor",
+        path: "/vendors/:id",
         name: "uniqueVendor",
         component: uniqueVendor
+      },
+      {
+        path: "/order/:id",
+        name: "uniqueOrder",
+        component: uniqueOrder
       }
-      
     ]
   },
   {

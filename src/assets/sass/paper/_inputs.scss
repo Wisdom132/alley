@@ -15,8 +15,8 @@
 }
 
 .form-control {
-  background-color: $gray-input-bg;
-  border: medium none;
+  // background-color: $gray-input-bg;
+  border: medium 1;
   border-radius: $border-radius-base;
   color: $font-color;
   font-size: $font-size-base;

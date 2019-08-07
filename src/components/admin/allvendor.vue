@@ -4,7 +4,6 @@
        <table class="table table-responsive-sm table-striped">
   <thead>
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">First name</th>
       <th scope="col">Last name</th>
       <th scope="col">email</th>
@@ -14,12 +13,11 @@
   </thead>
   <tbody>
     <tr v-for="vendor in vendors" :key="vendor.id">
-      <td>{{vendor.id}}</td>
       <td>{{vendor.f_name}}</td>
       <td>{{vendor.l_name}}</td>
       <td>{{vendor.email}}</td>
       <td>{{vendor.phone}}</td>
-      <td><router-link class="btn btn-primary" to="/admin/vendor">View</router-link></td>
+      <td><router-link class="btn btn-primary" :to="'/vendors/'+vendor._id">View</router-link></td>
 
 
     </tr>
@@ -30,56 +28,27 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
 
   data() {
       return {
-vendors: [
-  {
-    id: 1,
-    f_name: "Dakota",
-    l_name: "Rice",
-    email: "Dakota@gmail.com",
-    phone: "080966500747"
-  },
-  {
-    id: 2,
-    f_name: "Dakota",
-    l_name: "Rice",
-    email: "Dakota@gmail.com",
-    phone: "080966500747"
-  },
-  {
-    id: 2,
-    f_name: "Dakota",
-    l_name: "Rice",
-    email: "Dakota@gmail.com",
-    phone: "080966500747"
-  },
-  {
-    id: 3,
-    f_name: "Dakota",
-    l_name: "Rice",
-    email: "Dakota@gmail.com",
-    phone: "080966500747"
-  },
-  {
-    id: 4,
-    f_name: "Dakota",
-    l_name: "Rice",
-    email: "Dakota@gmail.com",
-    phone: "080966500747"
-  },
-  {
-    id: 5,
-    f_name: "Dakota",
-    l_name: "Rice",
-    email: "Dakota@gmail.com",
-    phone: "080966500747"
-  },
-]
+        vendors: []
       }
-
+  },
+  methods: {
+    getVendors() {
+      axios.get('http://localhost:3000/vendor')
+      .then(response => {
+        this.vendors = response.data
+        console.log(this.vendors)
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+  },
+  created() {
+    this.getVendors()
   }
 };
 </script>

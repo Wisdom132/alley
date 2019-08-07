@@ -6,22 +6,20 @@
     <div>
       <div class="author">
         <img class="avatar border-white" src="@/assets/img/faces/face-2.jpg" alt="...">
-        <h4 class="title">Wisdom Ekpot
+        <h4 class="title">{{vendor.f_name}} {{vendor.l_name}}
           <br>
           <a href="#">
-            <small>wisdomekpot@gmail.com</small><br />
-            <small>08096650057</small>
+            <small>{{vendor.email}}</small><br />
+            <small>{{vendor.phone}}</small>
           </a>
         </h4>
       </div>
       <p class="description text-center">
-        "I like the way you work it
-        <br> No diggity
-        <br> I wanna bag it up"
+        {{vendor.address}}
       </p>
       <div>
-          <h5>Agency Name:</h5><small>Wisdom Housing</small>
-            <h5>Agency Location:</h5><small>No 234 okigwe road,after st michaels,aba,abia state</small>
+          <h5>Agency Name:</h5><small>{{vendor.agency}}</small>
+            <h5>Agency Location:</h5><small>{{vendor.agency_address}}</small>
 
       </div>
     </div>
@@ -54,23 +52,11 @@
   </card>
 </template>
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
-      details: [
-        {
-          title: "12",
-          subTitle: "Files"
-        },
-        {
-          title: "2GB",
-          subTitle: "Used"
-        },
-        {
-          title: "24,6$",
-          subTitle: "Spent"
-        }
-      ]
+     vendor:[],
     };
   },
   methods: {
@@ -83,7 +69,19 @@ export default {
       } else {
         return "col-lg-3";
       }
+    },
+    getVendor(id) {
+      axios.get('http://localhost:3000/vendor/'+id)
+      .then(response => {
+        this.vendor = response.data
+        console.log(this.vendor)
+      }).catch(err => {
+        console.log(err)
+      })
     }
+  },
+   created() {
+    this.getVendor(this.$route.params.id)
   }
 };
 </script>

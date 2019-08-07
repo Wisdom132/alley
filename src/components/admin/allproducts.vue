@@ -16,13 +16,13 @@
   </thead>
   <tbody>
     <tr v-for="product in products" :key="product.id">
-      <td>{{product.product_name}}</td>
-      <td>{{product.vendor}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.vendor[0].f_name}}{{product.vendor[0].l_name}}</td>
       <td>{{product.category}}</td>
       <td>{{product.street}}</td>
       <td>{{product.city}}</td>
       <td>{{product.state}}</td>
-      <td><button class="btn btn-primary">Details</button></td>
+      <td><router-link class="btn btn-primary" :to="'/productDeatils/'+product._id">Details</router-link></td>
     </tr>
   </tbody>
 </table>
@@ -33,26 +33,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
  data() {
    return {
-     products:[
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       {product_name:'3 bed room flat',vendor:'Wisdom Ekpot', category:'bungalow',street:'oku street',city:'uyo',state:'Aba'},
-       
-     ]
+     products:[]
    }
- }
+ },
+  methods: {
+    getProducts() {
+       axios.get('http://localhost:3000/products')
+       .then(response => {
+        //  this.files = response.data[1].files[1].path;
+         this.products = response.data
+         console.log(this.products)
+       }).catch(err=> {
+         console.log(err)
+       })
+    }
+  },
+  created() {
+    this.getProducts();
+  }
 };
 </script>
 

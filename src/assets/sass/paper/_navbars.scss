@@ -58,12 +58,12 @@
   .navbar-nav{
     .nav-item .nav-link {
       line-height: 1.6;
-      margin: $navbar-margin-a;
+      // margin: $navbar-margin-a;
       padding: $navbar-padding-a;
       opacity: .8;
       font-size: $font-size-small;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
       color: $default-color;
 
       &:hover{
@@ -436,13 +436,7 @@
   margin-top: 20px;
 }
 .navbar-toggler-icon{
-  display: block;
-  position: relative;
-  width: 24px;
-  height: 2px;
-  border-radius: 1px;
-  margin: 0 auto;
-  background: gray;
+  color: white;
 }
 .no-transition{
   -webkit-transition: none;

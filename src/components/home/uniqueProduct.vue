@@ -1,7 +1,83 @@
 <template>
   <div>
+    <!-- model section -->
+    <div>
+      <div
+        class="modal fade"
+        id="exampleModaluser"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">User Info</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="card">
+                <article class="card-body">
+                  <form @submit.prevent="order">
+                    <div class="form-row">
+                      <div class="col form-group">
+                        <label>First name</label>
+                        <input type="text" class="form-control" v-model="users.f_name" placeholder />
+                      </div>
+                      <div class="col form-group">
+                        <label>Last name</label>
+                        <input type="text" class="form-control" v-model="users.l_name" placeholder />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" v-model="users.email" placeholder />
+                      </div>
+                      <div class="col form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" v-model="users.phone" placeholder />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" value="option1" />
+                        <span class="form-check-label">Male</span>
+                      </label>
+                      <label class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" value="option2" />
+                        <span class="form-check-label">Female</span>
+                      </label>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Location</label>
+                      <input type="text" v-model="users.location" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                    <small class="text-muted">
+                      By clicking the 'Sign Up' button, you confirm that you accept our
+                      <br />Terms of use and Privacy Policy.
+                    </small>
+                  </form>
+                </article>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- model section ends here -->
+
     <nav-bar />
-    <user-modal />
     <main class="container card">
       <div class="row no-gutters mt-5">
         <aside class="col-sm-6 border">
@@ -13,7 +89,11 @@
                 :data-index="index"
                 :key="index"
               >
-                <img @click="open($event)" class="" :src='`http://localhost:3000/${n.path}`'/>
+                <img
+                  @click="open($event)"
+                  class="img-fluid"
+                  :src="`http://localhost:3000/${n.path}`"
+                />
               </div>
             </div>
             <!-- slider-product.// -->
@@ -24,7 +104,11 @@
                 :data-index="index"
                 :key="index"
               >
-                <img @click="open($event)" class="img-fluid" :src='`http://localhost:3000/${n.path}`'/>
+                <img
+                  @click="open($event)"
+                  class="img-fluid"
+                  :src="`http://localhost:3000/${n.path}`"
+                />
               </div>
             </div>
           </article>
@@ -66,15 +150,21 @@
             <hr />
             <div class="row">
               <div class="col-sm-5">
-              Phone:<pre>08096650047</pre>
-            
+                Phone:
+                <pre>08096650047</pre>
               </div>
               <div class="col-sm-7">
-              Email:<pre>admin@alley.com</pre>
+                Email:
+                <pre>admin@alley.com</pre>
               </div>
             </div>
             <hr />
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaluser">Request</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModaluser"
+            >Request</button>
             <!-- short-info-wrap .// -->
           </article>
           <!-- card-body.// -->
@@ -85,25 +175,23 @@
 </template>
 
 <script>
-import axios from 'axios'
-import userModal from '@/components/home/userModal'
+import axios from "axios";
 import fancyBox from "vue-fancybox";
-import navbar from '@/components/home/navbar'
+import navbar from "@/components/home/navbar";
 export default {
   components: {
-    'nav-bar':navbar,
-    'user-modal':userModal
+    "nav-bar": navbar
   },
   data() {
     return {
-      product:[],
-      file:'',
+      product: [],
+      file: "",
+      users: [],
       imageList: [
         {
           width: 601,
-          height: 1024,
+          height: 1024
         }
-        
       ]
     };
   },
@@ -111,15 +199,36 @@ export default {
     open(e) {
       fancyBox(e.target, this.imageList);
     },
-     getProduct(id) {
-       axios.get('http://localhost:3000/products/'+id)
-       .then(response => {
-        this.imageList = response.data.files
-         this.product = response.data
-         console.log(this.imageList)
-       }).catch(err=> {
-         console.log(err)
-       })
+    getProduct(id) {
+      axios
+        .get("http://localhost:3000/products/" + id)
+        .then(response => {
+          this.imageList = response.data.files;
+          this.product = response.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    order() {
+      const id = this.product._id
+      let request = {
+        product:id,
+        f_name: this.users.f_name,
+        l_name: this.users.l_name,
+        email: this.users.email,
+        phone: this.users.phone,
+        location: this.users.location
+      };
+      axios
+        .post("http://localhost:3000/orders",request)
+        .then(response => {
+          console.log(response);
+          // console.log(this.product._id);
+        })
+        .catch(err => {
+          console.log({ err: err });
+        });
     }
   },
   created() {
@@ -134,19 +243,12 @@ export default {
   overflow: hidden;
   background-color: #fff;
 }
-.gallery-wrap .img-big-wrap img {
-  height: 450px;
-  width: auto;
-  display: inline-block;
-  cursor: -webkit-zoom-in;
-  cursor: zoom-in;
-}
 .gallery-wrap .img-small-wrap {
   text-align: center;
 }
 .gallery-wrap .img-small-wrap .item-gallery {
-  width: 60px;
-  height: 60px;
+  width: auto;
+  height: 90px;
   border: 1px solid #ddd;
   margin: 7px 2px;
   display: inline-block;

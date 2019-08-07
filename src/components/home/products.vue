@@ -54,9 +54,9 @@ export default {
     getProducts() {
        axios.get('http://localhost:3000/products')
        .then(response => {
-         this.files = response.data[1].files[1].path;
+        //  this.files = response.data[1].files[1].path;
          this.products = response.data
-         console.log(this.files)
+         console.log(this.products)
        }).catch(err=> {
          console.log(err)
        })

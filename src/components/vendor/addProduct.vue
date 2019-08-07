@@ -117,7 +117,7 @@ export default {
       if(!allowedTypes.includes(file.type)) {
         return 'This is not an image';
       }
-      return
+      return ""
     },
    addProduct() {
      let formData = new FormData();
