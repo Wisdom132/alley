@@ -40,6 +40,7 @@
               </aside>
               <aside class="col-sm-6">
                 <article class="p-3">
+                  <h3></h3>
                   <h3 class="title mb-3">{{product.name}}</h3>
                   <div class="mb-3">
                     <var class="price h3 text-primary">
@@ -65,8 +66,9 @@
                     <dd class="col-sm-9">{{product.state}}</dd>
                   </dl>
                   <hr />
+                  <h5><b>Vendor Detals</b> </h5>
                   <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                       <h5>{{product.vendor[0].f_name}} {{product.vendor[0].l_name}}</h5>
                     </div>
                   </div>

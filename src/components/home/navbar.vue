@@ -52,5 +52,10 @@ signup
 };
 </script>
 
-<style>
+<style scoped>
+@media (min-width: 998px){
+.navbar {
+    max-height: 55px !important;
+}
+}
 </style>

@@ -13,7 +13,7 @@
             <h4 class="title">{{product.name}}</h4>
             <p
               class="desc"
-            >{{product.description}}</p>
+            >{{product.description |truncate}} </p>
             <div class="rating-wrap">
               <ul class="rating-stars">
                 <li>
@@ -60,6 +60,14 @@ export default {
        }).catch(err=> {
          console.log(err)
        })
+    }
+  },
+   filters: {
+    truncate: function(value) {
+      if (value.length > 20) {
+        value = value.substring(0, 50) + '...';
+      }
+      return value
     }
   },
   created() {

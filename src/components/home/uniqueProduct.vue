@@ -130,9 +130,7 @@
               <dt>Description</dt>
               <dd>
                 <p>
-                  Here goes description consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco
+                  {{product.description}}
                 </p>
               </dd>
             </dl>

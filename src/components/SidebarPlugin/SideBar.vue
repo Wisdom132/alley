@@ -47,15 +47,15 @@ export default {
     },
     backgroundColor: {
       type: String,
-      default: "black",
+      default: "darkblue",
       validator: value => {
-        let acceptedValues = ["white", "black", "darkblue","blue"];
+        let acceptedValues = ["white", "black", "darkblue","blue", "green"];
         return acceptedValues.indexOf(value) !== -1;
       }
     },
     activeColor: {
       type: String,
-      default: "success",
+      default: "info",
       validator: value => {
         let acceptedValues = [
           "primary",
@@ -84,7 +84,7 @@ export default {
     };
   },
   components: {
-    MovingArrow,
+    // MovingArrow,
     SidebarLink
   },
   computed: {

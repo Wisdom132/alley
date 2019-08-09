@@ -61,10 +61,10 @@ export default {
       evt.preventDefault()
       axios.post(`http://localhost:3000/vendor/login`, this.login)
       .then(response => {
-        localStorage.setItem('jwtToken', response.data.token)
+        localStorage.setItem('jwtToken', response.data.token);
         this.$router.push({
            path: "/vendor",
-        })
+        });
       })
       .catch(e => {
         console.log(e)
