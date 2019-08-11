@@ -24,9 +24,6 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/product">Products</router-link>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Login</a>
-            </li> -->
             <li class="nav-item">
               <router-link class="nav-link" to="/login">Login</router-link>
             </li>
@@ -55,7 +52,7 @@ signup
 <style scoped>
 @media (min-width: 998px){
 .navbar {
-    max-height: 55px !important;
+    min-height:50px !important;
 }
 }
 </style>
