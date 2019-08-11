@@ -7,6 +7,7 @@ import home from '@/pages/home.vue';
 import homeProduct from '@/pages/homeProduct';
 import uniqueProduct from '@/components/home/uniqueProduct';
 import login from '@/pages/login';
+import allBlogs from '@/pages/allBlogs';
 
 // Admin pages
 import Dashboard from "@/pages/AdminPages/Dashboard.vue";
@@ -18,7 +19,10 @@ import users from "@/pages/AdminPages/users.vue";
 import vendors from "@/pages/AdminPages/Vendors.vue";
 import uniqueVendor from "@/pages/AdminPages/uniqueVendor";
 import productDeatils from "@/pages/AdminPages/uniqueProduct";
-import uniqueOrder from "@/pages/AdminPages/uniqueOrder"
+import uniqueOrder from "@/pages/AdminPages/uniqueOrder";
+import contact from "@/pages/AdminPages/contact";
+import addBlog from "@/components/admin/addBlog"
+import allBlog from "@/components/admin/allBlog"
 
 
 
@@ -80,6 +84,11 @@ const routes = [
         component: vendors
       },
       {
+        path: "/admin/contact",
+        name: "contact",
+        component: contact
+      },
+      {
         path: "/vendors/:id",
         name: "uniqueVendor",
         component: uniqueVendor
@@ -88,6 +97,16 @@ const routes = [
         path: "/order/:id",
         name: "uniqueOrder",
         component: uniqueOrder
+      },
+      {
+        path: "/admin/addblog",
+        name: "addBlog",
+        component: addBlog
+      },
+      {
+        path: "/admin/allblog",
+        name: "allBlog",
+        component: allBlog
       }
     ]
   },
@@ -129,6 +148,11 @@ const routes = [
     path:'/product',
     name:'homeProduct',
     component:homeProduct
+  },
+  {
+    path:'/blogs',
+    name:'allBlogs',
+    component:allBlogs
   },
   {
     path:'/uniqueProduct/:id',

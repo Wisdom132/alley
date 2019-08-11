@@ -9,6 +9,9 @@
         <sidebar-link to="/admin/products" name="All Products" icon="ti-pencil-alt2"/>
         <sidebar-link to="/admin/orders" name='All Orders' icon="ti-map"/>
         <sidebar-link to="/admin/notifications" name="Notifications" icon="ti-bell"/>
+        <sidebar-link to="/admin/contact" name="Contact" icon="ti-bell"/>
+        <sidebar-link to="/admin/allblog" name="All Blogs" icon="ti-bell"/>
+        <sidebar-link to="/admin/addblog" name="Add Blog" icon="ti-bell"/>
       </template>
       <mobile-menu>
         <li class="nav-item">

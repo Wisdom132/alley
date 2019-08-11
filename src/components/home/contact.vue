@@ -10,16 +10,22 @@
 							</div>
 						</div>
 					</div>
-					<form class="contact-form">
+					<form class="contact-form" @submit.prevent="sendContact">
 						<div class="row justify-content-center">
 							<div class="col-lg-5 mb-4">
-								<input type="text" name="fname" placeholder="Enter your name"  class="common-input" required>
+								<input type="text" name="fname" placeholder="Enter your first name" v-model="contact.first_name"  class="common-input" required>
 							</div>
 							<div class="col-lg-5 mb-4">
-								<input type="email" name="email" placeholder="Enter email address" class="common-input" required>
+								<input type="text" name="email" placeholder="Enter your last name address" v-model="contact.last_name" class="common-input" required>
+							</div>
+              <div class="col-lg-5 mb-4">
+								<input type="text" name="fname" placeholder="Enter your phone number" v-model="contact.phone"  class="common-input" required>
+							</div>
+							<div class="col-lg-5 mb-4">
+								<input type="email" name="email" placeholder="Enter your email address" v-model="contact.email " class="common-input" required>
 							</div>
 							<div class="col-lg-10">
-								<textarea class="common-textarea mt-20" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required></textarea>
+								<textarea class="common-textarea mt-20" name="message" placeholder="Messege" v-model="contact.message" required></textarea>
 							</div>
 							<div class="col-lg-10 d-flex justify-content-end">
 								<button class="btn btn-primary btn-sm mt-4 mb-4">Send Message<span class="lnr lnr-arrow-right"></span></button>
@@ -34,7 +40,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  data() {
+    return {
+      contact:{}
+    }
+  },
+  methods: {
+    sendContact() {
+        axios.post("http://localhost:3000/contact",this.contact).then(result=> {
+          console.log(result)
+        }).catch(err=> {
+          console.log(err)
+        });
+        this.contact = {};
+        alert("sent")
+      }
+  }
 
 }
 </script>
@@ -74,7 +97,7 @@ export default {
 
 .contact-form .primary-btn:hover span {
   background: -webkit-linear-gradient(0deg, #fff, #fff);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
 }
 

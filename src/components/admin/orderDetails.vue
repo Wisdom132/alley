@@ -16,7 +16,7 @@ export default {
      getOrder(id) {
          axios.get('http://localhost:3000/orders/'+id)
          .then(response => {
-             this.order = response.data.order;
+             this.order = response.data;
              console.log(this.order);
          }).catch(error => {
              console.log(error);
