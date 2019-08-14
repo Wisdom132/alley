@@ -6,7 +6,7 @@
 							<div class="logo">
 								<a href="index.html"><img src="img/logo.png" alt=""></a>
 							</div>
-							<div class="copy-right-text">Copyright &copy; 2017  |  All rights reserved to <a href="#">Dinomuz inc.</a> Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></div>
+							<div class="copy-right-text">Copyright &copy; 2017  |  All rights reserved to <a href="#" class="text-light">Alley.ng</a>| Designed by Wisdom</div>
 							<div class="footer-social">
 								<a href="#"><i class="fa fa-facebook"></i></a>
 								<a href="#"><i class="fa fa-twitter"></i></a>

@@ -140,6 +140,8 @@ export default {
       console.log(response)
     }).catch(err=> {
       console.log(err);
+      this.products = [];
+      swal("Posted!", "Your New Property has been Posted", "success");
     })
    }
   }

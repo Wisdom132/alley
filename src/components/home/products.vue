@@ -1,12 +1,19 @@
 <template>
   <div class="container">
-    <div class="row mt-4">
+    <nav class="navbar navbar-light border">
+  <a class="navbar-brand">Alley</a>
+  <form class="form-inline col-md-8">
+    <input class="form-control mr-sm-2 col-md-8" type="search" placeholder="Search for Properties according to location" aria-label="Search">
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+    <div class="row mt-4 mx-auto">
       <div class="col-md-4" v-for="(product, index) in products" :key="index">
-        <figure class="card card-product shadow" style="width:18rem" >
+        <figure class="card card-product shadow mx-auto" style="width:18rem" >
           <div class="img-wrap">
             <img
               :src="'http://localhost:3000/'+product.files[1].path"
-              class="img-fluid"
+              class="card-image-top"
             />
           </div>
           <figcaption class="info-wrap container">
@@ -14,24 +21,23 @@
             <p
               class="desc"
             >{{product.description |truncate}} </p>
-            <div class="rating-wrap">
-              <ul class="rating-stars">
-                <li>
-                  <i class="fa fa-star text-warning"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                </li>
-              </ul>
-            </div>
             <!-- rating-wrap.// -->
+             <dl class="row">
+                    <dt class="col-sm-3">Street</dt>
+                    <dd class="col-sm-9">{{product.street}}</dd>
+
+                    <dt class="col-sm-3">City</dt>
+                    <dd class="col-sm-9">{{product.city}}</dd>
+
+                    <dt class="col-sm-3">State</dt>
+                    <dd class="col-sm-9">{{product.state}}</dd>
+                  </dl>
           </figcaption>
           <div class="card-footer container">
             <router-link :to="'/uniqueProduct/'+product._id" class="btn btn-sm btn-primary float-right">Details</router-link>
             <div class="price-wrap h5">
               <span class="price-new">N{{product.price}}</span>
-              <del class="price-old pl-2">$1980</del>
+              <del class="price-old pl-2">N{{product.price + 700}}</del>
             </div>
           </div>
         </figure>
@@ -46,6 +52,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
+     
       products:[],
       files:''
     }
@@ -54,7 +61,6 @@ export default {
     getProducts() {
        axios.get('http://localhost:3000/products')
        .then(response => {
-        //  this.files = response.data[1].files[1].path;
          this.products = response.data
          console.log(this.products)
        }).catch(err=> {
@@ -77,10 +83,14 @@ export default {
 </script>
 
 <style scoped>
+.navbar {
+  background: #fffafa !important;
+}
 .container {
   width:100%;
 }
-ul li {
-  list-style: none;
+.card-image-top {
+  height:180px !important;
+  width:18rem; 
 }
 </style>

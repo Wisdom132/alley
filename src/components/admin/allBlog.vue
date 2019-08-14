@@ -6,10 +6,10 @@
           <div class="card shadow mx-auto" style="width: 18rem;">
             <img :src="'http://localhost:3000/'+blog.blogImage" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h4 class="card-title mb-4"><b>{{blog.title}}</b></h4>
-              <p
-                class="card-text text-justify"
-              >{{blog.postBody | truncate}}</p>
+              <h4 class="card-title mb-4">
+                <b>{{blog.title}}</b>
+              </h4>
+              <p class="card-text text-justify">{{blog.postBody | truncate}}</p>
               <a href="#" class="btn btn-danger m-2" @click.prevent="deletePost(blog._id)">Delete</a>
               <a href="#" class="btn btn-primary">Edit</a>
             </div>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import swal from "sweetalert";
 import axios from "axios";
 export default {
   data() {
@@ -40,22 +41,40 @@ export default {
           console.log(err);
         });
     },
+
     deletePost(id) {
-        axios.delete(`http://localhost:3000/blog/${id}`)
-        .then(response=> {
-            this.$router.push({ path: "/admin/allblog" });
-            // this.blogs.splice(this.blogs.indexOf(id), 1);
-        }).catch(err=> {
-            console.log(err)
-        });
+      swal({
+        title: "Are you sure?",
+        text:
+          "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(willDelete => {
+        if (willDelete) {
+          axios
+            .delete(`http://localhost:3000/blog/${id}`)
+            .then(response => {
+              this.$router.push({ path: "/admin/addblog" });
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success"
+          });
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
     }
   },
-   filters: {
+  filters: {
     truncate: function(value) {
       if (value.length > 20) {
-        value = value.substring(0, 150) + '...';
+        value = value.substring(0, 150) + "...";
       }
-      return value
+      return value;
     }
   },
   created() {
@@ -64,5 +83,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card-img-top {
+  min-height: 150px !important;
+  width: 18rem;
+}
 </style>

@@ -1,9 +1,14 @@
 <template>
   <div>
     <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                 <h4>Lastest Posts</h4>
+            </div>
+        </div>
       <div class="row mt-4">
         <div class="col-md-4" v-for="(blog, index) in blogs" :key="index">
-          <div class="card shadow" style="width: 18rem;">
+          <div class="card shadow mx-auto" style="width: 18rem;">
             <img :src="'http://localhost:3000/'+blog.blogImage" class="card-image-top" alt="..." />
             <div class="card-body">
               <h4 class="card-title mb-4"><b>{{blog.title}}</b></h4>
@@ -32,7 +37,7 @@ export default {
       axios
         .get("http://localhost:3000/blog")
         .then(response => {
-          this.blogs = response.data;
+          this.blogs = response.data.slice(0, 3);
           console.log(this.blogs);
         })
         .catch(err => {

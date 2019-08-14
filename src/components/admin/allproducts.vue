@@ -22,7 +22,7 @@
       <td>{{product.street}}</td>
       <td>{{product.city}}</td>
       <td>{{product.state}}</td>
-      <td><router-link class="btn btn-primary" :to="'/productDeatils/'+product._id">Details</router-link></td>
+      <td><router-link class="btn btn-primary btn-sm" :to="'/productDeatils/'+product._id">Details</router-link></td>
     </tr>
   </tbody>
 </table>
@@ -39,7 +39,7 @@ export default {
    return {
      products:[]
    }
- },
+ }, 
   methods: {
     getProducts() {
        axios.get('http://localhost:3000/products')

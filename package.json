@@ -16,11 +16,14 @@
     "chartist": "^0.11.0",
     "es6-promise": "^4.2.4",
     "lodash": "^4.17.15",
+    "sweetalert": "^2.1.2",
     "vue": "^2.5.17",
     "vue-clickaway": "^2.1.0",
     "vue-fancybox": "^1.0.3",
+    "vue-jwt-decode": "^0.1.0",
     "vue-notifyjs": "^0.3.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-sweetalert2": "^2.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.9",

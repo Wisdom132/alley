@@ -84,6 +84,7 @@ export default {
       console.log(err);
     })
     this.blog = [];
+    swal("Posted!", "Your New Blog has been Posted", "success");
    }
   }
   

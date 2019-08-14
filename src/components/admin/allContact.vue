@@ -11,6 +11,7 @@
               <th scope="col">Email</th>
               <th scope="col" colspan="4">Message</th>
               <th scope="col">Date</th>
+               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +22,7 @@
               <td>{{contact.email}}</td>
               <td colspan="4">{{contact.message}}</td>
               <td>{{contact.createdDate}}</td>
+              <td><button class="btn btn-danger btn-sm" @click.prevent="deleteContact(contact._id)">Delete</button></td>
             </tr>
           </tbody>
         </table>
@@ -48,6 +50,33 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+
+    deleteContact(id) {
+      swal({
+        title: "Are you sure?",
+        text:
+          "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(willDelete => {
+        if (willDelete) {
+          axios
+            .delete(`http://localhost:3000/contact/${id}`)
+            .then(response => {
+              this.$router.push({ path: "/admin/dashboard" });
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success"
+          });
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
     }
   },
   created() {

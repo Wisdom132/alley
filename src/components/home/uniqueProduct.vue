@@ -173,6 +173,7 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
 import axios from "axios";
 import fancyBox from "vue-fancybox";
 import navbar from "@/components/home/navbar";
@@ -227,6 +228,8 @@ export default {
         .catch(err => {
           console.log({ err: err });
         });
+        this.users= [],
+        swal("Request Sent", "Your Request has been sent successfully.", "success");
     }
   },
   created() {
