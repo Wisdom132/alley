@@ -9,7 +9,7 @@
 </nav>
     <div class="row mt-4 mx-auto">
       <div class="col-md-4" v-for="(product, index) in products" :key="index">
-        <figure class="card card-product shadow mx-auto" style="width:18rem" >
+        <figure class="card card-product shadow mx-auto" style="width:18rem;height:30rem !important;">
           <div class="img-wrap">
             <img
               :src="'http://localhost:3000/'+product.files[1].path"
@@ -36,13 +36,19 @@
           <div class="card-footer container">
             <router-link :to="'/uniqueProduct/'+product._id" class="btn btn-sm btn-primary float-right">Details</router-link>
             <div class="price-wrap h5">
-              <span class="price-new">N{{product.price}}</span>
+              <span class="price-new"><del>N</del>{{product.price}}</span>
               <del class="price-old pl-2">N{{product.price + 700}}</del>
             </div>
           </div>
         </figure>
+
+
+          
+
       </div>
       	
+    </div>
+    <div>
     </div>
   </div>
 </template>

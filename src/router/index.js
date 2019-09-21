@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes, // short for routes: routes
   linkActiveClass: "active",
-  mode:'history'
+  mode: "history"
 });
 
 export default router;

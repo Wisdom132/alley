@@ -1,85 +1,50 @@
 <template>
   <div>
-    <section id="header" :style="{ height: (this.height - this.decrement) + 'px' }">
+    <nav-bar />
+    <section class="hero-banner magic-ball">
+      <div class="container">
+        <div class="row align-items-center text-center text-md-left">
+          <div class="col-md-6 col-lg-5 mb-5 mb-md-0 col-sm-12">
+            <h1>Lorem ipsum dolor sit amet, consectetur.</h1>
+            <p>Air seed winged lights saw kind whales in sixth dont kind whales in sixth dont seas dron image so fish all tree meat dont there</p>
+            <a class="btn btn-sm btn-primary button-hero" href="#">Get Started</a>
+          </div>
+          <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
+            <img class="img-fluid" src="../images/2.jpg" alt />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section id="header">
+      <nav-bar />
       <div class="container">
         <div class="row">
-          <div class="col-md-7 col-sm-12 text-light">
-            <h3
-              class="text-uppercase headerText"
-              :style="{ marginTop: (this.height / 2.9) + 'px' }"
-            >
+          <div class="col-lg-5 col-md-6 col-sm-12 text-dark">
+            <h3 class="text-uppercase headerText">
               DON’T LOOK ANYWHERE,
-              <br />THIS IS THE BEST PLACE ON WEB
+              THIS IS THE BEST PLACE ON WEB
             </h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores fugit reprehenderit
               vel ratione aut explicabo sunt.
             </p>
-            <button class="btn btn-primary">View Properties</button>
+            <button class="btn btn-primary btn-sm">View Properties</button>
           </div>
         </div>
       </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row mt-5 mb-5">
-                <div class="col-md-8 offset-md-2 text-center">
-                    <h3>OUR WORKING PROCESS</h3>
-                    <p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the introduction of Virtual Game, it has been achieving</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="total-work-process d-flex flex-wrap justify-content-around align-items-center">
-						<div class="single-work-process">
-							<div class="work-icon-box">
-								<span class="lnr lnr-funnel"></span>
-							</div>
-							<h4 class="caption">1. Signup on alley</h4>
-						</div>
-						<div class="work-arrow">
-							<img src="./../images/work-arrow.png" alt="">
-						</div>
-						<div class="single-work-process">
-							<div class="work-icon-box">
-								<span class="lnr lnr-layers"></span>
-							</div>
-							<h4 class="caption">2. Login on alley</h4>
-						</div>
-						<div class="work-arrow">
-							<img src="./../images/work-arrow.png" alt="">
-						</div>
-						<div class="single-work-process">
-							<div class="work-icon-box">
-								<span class="lnr lnr-paw"></span>
-							</div>
-							<h4 class="caption">3. Post Properties</h4>
-						</div>
-						<div class="work-arrow">
-							<img src="./../images/work-arrow.png" alt="">
-						</div>
-						<div class="single-work-process">
-							<div class="work-icon-box">
-								<span class="lnr lnr-smile"></span>
-							</div>
-							<h4 class="caption">4. Get Notified</h4>
-						</div>
-					</div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    
+    </section>-->
   </div>
 </template>
 
 <script>
+import navbar from "@/components/home/navbar";
 export default {
+  components: {
+    "nav-bar": navbar
+  },
   data() {
     return {
-      decrement: 45,
-      height: window.innerHeight
+      height: window.outerHeight
     };
   },
   created() {
@@ -90,72 +55,99 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-#header {
-  background: linear-gradient(rgba(0, 0, 34, 0.55), rgba(0, 0, 34, 0.55)),
-    url("https://images.pexels.com/photos/290275/pexels-photo-290275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size: cover;
-  background-attachment: fixed;
-  /* clip-path: polygon(0 0, 100% 0%, 100% 71%, 0% 100%); */
-  overflow-x: hidden;
-}
 * {
   font-family: "Poppins", sans-serif;
 }
-.single-work-process .work-icon-box {
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  border-radius: 3px;
-  border: 1px solid #eee;
-  text-align: center;
+/* #header {
+  background: url("../images/header.png");
+  background-size: cover;
+  height: 640px;
+}
+@media (max-width: 750px) {
+  #header {
+    background: url("../images/mediahead.png");
+    background-size: cover;
+    height: auto !important;
+  }
+  .headerText {
+    padding-top: 120px !important;
+  }
+}
+.headerText {
+  padding-top: 180px;
+}
+.btn:hover {
+  background: blue !important;
+} */
+.hero-banner {
+  padding-top: 120px;
+}
+@media (max-width: 500px) {
+  .hero-banner {
+    padding-top: 10px;
+  }
 }
 
-.single-work-process .work-icon-box span {
-  line-height: 118px;
-  font-size: 42px;
-}
-.single-work-process .caption {
-  font-size: 20px;
-  margin-top: 20px;
-}
-.work-arrow {
-  margin-top: -30px;
+@media (min-width: 992px) {
+  .hero-banner {
+    padding-top: 100px;
+  }
 }
 
-@media (max-width: 1199px) {
-  .work-arrow img {
-    width: 40px;
-    height: auto;
+.hero-banner h1 {
+  text-transform: uppercase;
+  color: #6059f6;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+  .hero-banner h1 {
+    font-size: 40px;
   }
 }
 
 @media (max-width: 991px) {
-  .work-arrow img {
-    width: 25px;
-    height: auto;
+  .hero-banner h1 {
+    font-size: 30px;
   }
 }
 
-@media (max-width: 767px) {
-  .work-arrow {
-    display: none;
+.hero-banner-sm {
+  background: url(../images/test.png) left center no-repeat;
+  background-size: cover;
+  padding-top: 140px;
+  padding-bottom: 90px;
+}
+
+@media (min-width: 992px) {
+  .hero-banner-sm {
+    padding-top: 240px;
+    padding-bottom: 140px;
   }
 }
+
+.hero-banner-sm h1 {
+  text-transform: uppercase;
+  color: #150bd8;
+}
+
 @media (max-width: 991px) {
-  .total-work-process {
-    padding: 0;
+  .hero-banner-sm h1 {
+    font-size: 38px;
   }
 }
 
-.single-work-process {
-  margin-top: 30px;
-  text-align: center;
-}
-
-@media (max-width: 767px) {
-  .single-work-process {
-    width: 100%;
+@media (max-width: 768px) {
+  .hero-banner-sm h1 {
+    font-size: 28px;
   }
 }
 
+.hero-banner-sm p {
+  margin-bottom: 0;
+}
+
+.hero-banner-sm-content {
+  max-width: 400px;
+}
 </style>

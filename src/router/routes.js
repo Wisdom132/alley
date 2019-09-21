@@ -155,8 +155,8 @@ const routes = [
     component:allBlogs
   },
   {
-    path:'/uniqueProduct/:id',
-    name:'uniqueProduct',
+    path:"/uniqueProduct/:id",
+    name:"uniqueProduct",
     component:uniqueProduct
   }
 ];

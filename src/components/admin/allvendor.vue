@@ -18,8 +18,6 @@
       <td>{{vendor.email}}</td>
       <td>{{vendor.phone}}</td>
       <td><router-link class="btn btn-primary" :to="'/vendors/'+vendor._id">View</router-link></td>
-
-
     </tr>
   </tbody>
 </table>
@@ -33,7 +31,7 @@ export default {
 
   data() {
       return {
-        vendors: []
+        vendors: [],
       }
   },
   methods: {
@@ -41,7 +39,7 @@ export default {
       axios.get('http://localhost:3000/vendor')
       .then(response => {
         this.vendors = response.data
-        console.log(this.vendors)
+        console.log(response.data)
       }).catch(err => {
         console.log(err)
       })
