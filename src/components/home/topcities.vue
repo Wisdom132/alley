@@ -11,7 +11,7 @@
           <div class="card bg-dark text-white">
             <img class="card-img" :src="city.image" alt="Card image" />
             <div class="card-img-overlay text-center py-auto">
-              <h5 class="card-title text-light">{{city.name}}</h5>
+              <h5 class="card-title text-light" style="top:50%;position:relative">{{city.name}}</h5>
             </div>
           </div>
         </div>
