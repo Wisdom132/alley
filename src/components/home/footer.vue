@@ -1,32 +1,42 @@
 <template>
-    <div>
-        <footer class="bg-primary">
-					<div class="container">
-						<div class="footer-content d-flex justify-content-between align-items-center flex-wrap">
-							<div class="logo">
-								<a href="index.html"><img src="img/logo.png" alt=""></a>
-							</div>
-							<div class="copy-right-text">Copyright &copy; 2017  |  All rights reserved to <a href="#" class="text-light">Alley.ng</a>| Designed by Wisdom</div>
-							<div class="footer-social">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-dribbble"></i></a>
-								<a href="#"><i class="fa fa-behance"></i></a>
-							</div>
-						</div>
-					</div>
-				</footer>
-    </div>
+  <div>
+    <footer style="background-color:#0d5fb5">
+      <div class="container">
+        <div class="footer-content d-flex justify-content-between align-items-center flex-wrap">
+          <div class="logo">
+            <a href="index.html">
+              <img src="img/logo.png" alt />
+            </a>
+          </div>
+          <div class="copy-right-text">
+            Copyright &copy; 2017 | All rights reserved to
+            <a href="#" class="text-light">Alley.ng</a>| Designed by Wisdom
+          </div>
+          <div class="footer-social">
+            <a href="#">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-dribbble"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-behance"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
-
 footer {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   /* margin-top: 100px; */
@@ -44,7 +54,7 @@ footer .copy-right-text {
 }
 
 footer .copy-right-text a {
-  color: #3e69fe;
+  color: #0d5fb5;
 }
 
 .footer-social a {
@@ -87,5 +97,4 @@ footer .copy-right-text a {
 .footer-social a:hover:after {
   opacity: 1;
 }
-
 </style>

@@ -13,7 +13,7 @@
             <div class="card-body">
               <h5 class="card-title mb-2">Best Agents</h5>
               <p
-                class="card-text"
+                class="card-text mv-3 text-secondary"
               >Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, necessitatibus?</p>
             </div>
           </div>
@@ -24,7 +24,7 @@
             <div class="card-body">
               <h5 class="card-title mb-2">Look no further</h5>
               <p
-                class="card-text"
+                class="card-text mb-3 text-secondary"
               >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, omnis.</p>
             </div>
           </div>
@@ -35,7 +35,7 @@
             <div class="card-body">
               <h5 class="card-title mb-2">Best Services</h5>
               <p
-                class="card-text"
+                class="card-text mb-3 text-secondary"
               >Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, asperiores!</p>
             </div>
           </div>
@@ -49,6 +49,6 @@ export default {};
 </script>
 <style scoped>
 .card-title {
-  color: blue;
+  color: #0d5fb5 !important;
 }
 </style>
