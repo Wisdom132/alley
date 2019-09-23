@@ -26,7 +26,7 @@
               <router-link class="nav-link" to="/blogs">Blog</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/login">Login</router-link>
+              <router-link class="nav-link" to="/vendorlogin">Login</router-link>
             </li>
             <li class="nav-item">
               <a

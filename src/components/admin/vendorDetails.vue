@@ -1,62 +1,64 @@
 <template>
   <card class="card-user col-md-8 offset-md-2">
     <div slot="image">
-      <img src="@/assets/img/background.jpg" alt="...">
+      <img src="@/assets/img/background.jpg" alt="..." />
     </div>
     <div>
-      <div class="author">
-        <img class="avatar border-white" src="@/assets/img/faces/face-2.jpg" alt="...">
-        <h4 class="title">{{vendor.f_name}} {{vendor.l_name}}
-          <br>
+      <div class="author text-dark">
+        <img class="avatar border-white" src="@/assets/img/faces/face-2.jpg" alt="..." />
+        <h4 class="title">
+          {{vendor.f_name}} {{vendor.l_name}}
+          <br />
           <a href="#">
-            <small>{{vendor.email}}</small><br />
-            <small>{{vendor.phone}}</small>
+            <small class="text-dark">{{vendor.email}}</small>
+            <br />
+            <small class="text-dark">{{vendor.phone}}</small>
           </a>
         </h4>
       </div>
-      <p class="description text-center">
-        {{vendor.address}}
-      </p>
+      <p class="description text-center">{{vendor.address}}</p>
       <div>
-          <h5>Agency Name:</h5><small>{{vendor.agency}}</small>
-            <h5>Agency Location:</h5><small>{{vendor.agency_address}}</small>
-
+        <h5>Agency Name:</h5>
+        <small>{{vendor.agency}}</small>
+        <h5>Agency Location:</h5>
+        <small>{{vendor.agency_address}}</small>
       </div>
     </div>
-    <hr>
-    <div class="text-center">
+    <hr />
+    <!-- <div class="text-center">
       <div class="row">
-            <div class="col-md-4">
-                <h5>Gender
-            <br>
+        <div class="col-md-4">
+          <h5>
+            Gender
+            <br />
             <small>Male</small>
           </h5>
-            </div>
-             <div class="col-md-4">
-                <h5>Number of Products
-            <br>
+        </div>
+        <div class="col-md-4">
+          <h5>
+            Number of Products
+            <br />
             <small>5</small>
           </h5>
-            </div>
-             <div class="col-md-4">
-                <h5>Date Created
-            <br>
+        </div>
+        <div class="col-md-4">
+          <h5>
+            Date Created
+            <br />
             <small>12 july 2019</small>
           </h5>
-            </div>
-            
-          
         </div>
+      </div>
       <button class="btn btn-primary">Contact</button>
-    </div>
+    </div>-->
   </card>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
-     vendor:[],
+      vendor: []
     };
   },
   methods: {
@@ -71,17 +73,19 @@ export default {
       }
     },
     getVendor(id) {
-      axios.get('http://localhost:3000/vendor/'+id)
-      .then(response => {
-        this.vendor = response.data
-        console.log(this.vendor)
-      }).catch(err => {
-        console.log(err)
-      })
+      this.$http
+        .get("vendor/" + id)
+        .then(response => {
+          this.vendor = response.data;
+          console.log(this.vendor);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
-   created() {
-    this.getVendor(this.$route.params.id)
+  created() {
+    this.getVendor(this.$route.params.id);
   }
 };
 </script>

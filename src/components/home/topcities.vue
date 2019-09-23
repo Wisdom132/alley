@@ -2,12 +2,12 @@
   <section>
     <div class="container">
       <div class="row magic-ball">
-        <div class="col-md-12 mt-5 mb-5 text-center">
+        <div class="col-md-12 mt-3 mb-5 text-center">
           <h4>Top Cities</h4>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3" v-for="city in cities" :key="city.id">
+        <div class="col-lg-3 col-md-4 col-xl-3 col-sm-2" v-for="city in cities" :key="city.id">
           <div class="card bg-dark text-white">
             <img class="card-img" :src="city.image" alt="Card image" />
             <div class="card-img-overlay text-center py-auto">

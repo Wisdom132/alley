@@ -13,5 +13,5 @@ export default {};
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 * {
   font-family: "Poppins", sans-serif !important;
-} 
+}
 </style>

@@ -9,9 +9,14 @@
               <h4 class="card-title mb-4">
                 <b>{{blog.title}}</b>
               </h4>
+              <div class="badge badge-primary">{{blog.category}}</div>
               <p class="card-text text-justify">{{blog.postBody | truncate}}</p>
-              <a href="#" class="btn btn-danger m-2" @click.prevent="deletePost(blog._id)">Delete</a>
-              <a href="#" class="btn btn-primary">Edit</a>
+              <a
+                href="#"
+                class="btn btn-danger m-2 btn-sm"
+                @click.prevent="deletePost(blog._id)"
+              >Delete</a>
+              <a href="#" class="btn btn-primary btn-sm">Edit</a>
             </div>
           </div>
         </div>
@@ -31,8 +36,8 @@ export default {
   },
   methods: {
     getPost() {
-      axios
-        .get("http://localhost:3000/blog")
+      this.$http
+        .get("blog")
         .then(response => {
           this.blogs = response.data;
           console.log(this.blogs);
@@ -52,8 +57,8 @@ export default {
         dangerMode: true
       }).then(willDelete => {
         if (willDelete) {
-          axios
-            .delete(`http://localhost:3000/blog/${id}`)
+          this.$http
+            .delete(`blog/${id}`)
             .then(response => {
               this.$router.push({ path: "/admin/addblog" });
             })

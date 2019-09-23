@@ -19,7 +19,7 @@
               :to="'/uniqueProduct/'+product._id"
               class="btn btn-sm btn-primary float-right"
             >Details</router-link>
-            <div class="price-wrap h5">
+            <div class="price-wrap mb-4">
               <span class="price-new">
                 <del>N</del>
                 {{product.price}}
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   data() {
     return {
@@ -47,8 +47,8 @@ export default {
   },
   methods: {
     getProducts() {
-      axios
-        .get("http://localhost:3000/products")
+      this.$http
+        .get("products")
         .then(response => {
           //  this.files = response.data[1].files[1].path;
           this.products = response.data.slice(0, 3);

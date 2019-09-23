@@ -3,11 +3,12 @@ import vendorLayout from "@/layout/dashboard/vendorLayout.vue";
 
 // GeneralViews
 import NotFound from "@/pages/NotFoundPage.vue";
-import home from '@/pages/home.vue';
-import homeProduct from '@/pages/homeProduct';
-import uniqueProduct from '@/components/home/uniqueProduct';
-import login from '@/pages/login';
-import allBlogs from '@/pages/allBlogs';
+import home from "@/pages/home.vue";
+import homeProduct from "@/pages/homeProduct";
+import uniqueProduct from "@/components/home/uniqueProduct";
+import login from "@/pages/login";
+import adminLogin from "@/pages/adminLogin";
+import allBlogs from "@/pages/allBlogs";
 
 // Admin pages
 import Dashboard from "@/pages/AdminPages/Dashboard.vue";
@@ -21,16 +22,14 @@ import uniqueVendor from "@/pages/AdminPages/uniqueVendor";
 import productDeatils from "@/pages/AdminPages/uniqueProduct";
 import uniqueOrder from "@/pages/AdminPages/uniqueOrder";
 import contact from "@/pages/AdminPages/contact";
-import addBlog from "@/components/admin/addBlog"
-import allBlog from "@/components/admin/allBlog"
-
-
+import addBlog from "@/components/admin/addBlog";
+import allBlog from "@/components/admin/allBlog";
 
 // vendor pages
-import vendorDashboard from '@/pages/VendorPages/vendorDashboard'
-import profile from '@/pages/VendorPages/profile'
-import VendorProduct from '@/pages/VendorPages/VendorProducts'
-import VendorAdd from '@/pages/VendorPages/VendorAdd'
+import vendorDashboard from "@/pages/VendorPages/vendorDashboard";
+import profile from "@/pages/VendorPages/profile";
+import VendorProduct from "@/pages/VendorPages/VendorProducts";
+import VendorAdd from "@/pages/VendorPages/VendorAdd";
 
 const routes = [
   {
@@ -138,26 +137,27 @@ const routes = [
     ]
   },
   { path: "*", component: NotFound },
-  { path: "/login", component: login, name:'login'},
+  { path: "/vendorlogin", component: login, name: "login" },
+  { path: "/adminlogin", component: adminLogin, name: "adminLogin" },
   {
-    path:'/',
-    name:'home',
-    component:home
+    path: "/",
+    name: "home",
+    component: home
   },
   {
-    path:'/product',
-    name:'homeProduct',
-    component:homeProduct
+    path: "/product",
+    name: "homeProduct",
+    component: homeProduct
   },
   {
-    path:'/blogs',
-    name:'allBlogs',
-    component:allBlogs
+    path: "/blogs",
+    name: "allBlogs",
+    component: allBlogs
   },
   {
-    path:"/uniqueProduct/:id",
-    name:"uniqueProduct",
-    component:uniqueProduct
+    path: "/uniqueProduct/:id",
+    name: "uniqueProduct",
+    component: uniqueProduct
   }
 ];
 

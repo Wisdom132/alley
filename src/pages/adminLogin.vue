@@ -8,7 +8,7 @@
           </div>
 
           <form class="login100-form validate-form" @submit.prevent="onSubmit">
-            <span class="login100-form-title">Vendor Login</span>
+            <span class="login100-form-title">Admin Login</span>
 
             <div
               class="wrap-input100 validate-input"
@@ -95,14 +95,17 @@ export default {
       } else {
         this.loading = true;
         this.$http
-          .post(`vendor/login`, this.login)
+          .post(`admin/login`, {
+            email: this.login.email,
+            password: this.login.password
+          })
           .then(response => {
             this.loading = false;
-            swal("ok", "login successful", "success");
             localStorage.setItem("jwtToken", response.data.token);
             this.$router.push({
-              path: "/vendor"
+              path: "/admin/dashboard"
             });
+            swal("ok", "login successful", "success");
           })
           .catch(err => {
             this.loading = false;

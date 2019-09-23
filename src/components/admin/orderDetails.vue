@@ -16,20 +16,20 @@
                           :src="`http://localhost:3000/${order.product.files[0].path}`"
                         />
                       </div>
-                      <!-- <div class="img-small-wrap">
-                    <div
-                      class="item-gallery"
-                      v-for="(n, index) in order.product.files"
-                      :data-index="index"
-                      :key="index"
-                    >
-                      <img
-                        @click="open($event)"
-                        class="img-fluid"
-                        :src="`http://localhost:3000/${n.path}`"
-                      />
-                    </div>
-                      </div>-->
+                      <div class="img-small-wrap">
+                        <div
+                          class="item-gallery"
+                          v-for="(n, index) in order.product.files"
+                          :data-index="index"
+                          :key="index"
+                        >
+                          <img
+                            @click="open($event)"
+                            class="img-fluid"
+                            :src="`http://localhost:3000/${n.path}`"
+                          />
+                        </div>
+                      </div>
                     </div>
                     <hr />
                     <h5>
@@ -136,8 +136,8 @@ export default {
   },
   methods: {
     getOrder(id) {
-      axios
-        .get("http://localhost:3000/orders/" + id)
+      this.$http
+        .get("orders/" + id)
         .then(response => {
           this.order = response.data;
           console.log(this.order);
@@ -150,15 +150,14 @@ export default {
     deleteOrder(id) {
       swal({
         title: "Are you sure?",
-        text:
-          "Once deleted, you will not be able to Get back this request!",
+        text: "Once deleted, you will not be able to Get back this request!",
         icon: "warning",
         buttons: true,
         dangerMode: true
       }).then(willDelete => {
         if (willDelete) {
-          axios
-            .delete(`http://localhost:3000/orders/${id}`)
+          this.$http
+            .delete(`orders/${id}`)
             .then(response => {
               this.$router.push({ path: "/admin/orders" });
             })

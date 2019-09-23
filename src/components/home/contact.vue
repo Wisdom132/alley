@@ -65,6 +65,12 @@
             </div>
             <div class="col-lg-10 d-flex justify-content-end">
               <button class="btn btn-primary btn-sm mt-4 mb-4">
+                <span
+                  class="spinner-border spinner-border-sm"
+                  v-if="loading"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
                 Send Message
                 <span class="lnr lnr-arrow-right"></span>
               </button>
@@ -77,25 +83,35 @@
 </template>
 
 <script>
+import swal from "sweetalert";
 import axios from "axios";
 export default {
   data() {
     return {
+      loading: false,
       contact: {}
     };
   },
   methods: {
     sendContact() {
-      axios
-        .post("http://localhost:3000/contact", this.contact)
+      this.loading = true;
+      this.$http
+        .post("contact", this.contact)
         .then(result => {
+          this.loading = false;
+          this.contact = {};
+          swal(
+            "Yea",
+            "Your message was sent..We will contact you as soon as possible",
+            "success"
+          );
           console.log(result);
         })
         .catch(err => {
+          this.loading = false;
+          swal("oops", "Something went wrong", "error");
           console.log(err);
         });
-      this.contact = {};
-      alert("sent");
     }
   }
 };

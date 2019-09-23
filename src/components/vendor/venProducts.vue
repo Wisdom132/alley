@@ -9,7 +9,7 @@
           <figcaption class="info-wrap container">
             <h4 class="title">{{product.name}}</h4>
             <p class="desc">{{product.description |truncate}}</p>
-            <dl class="row">
+            <!-- <dl class="row">
               <dt class="col-sm-3">Street</dt>
               <dd class="col-sm-9">{{product.street}}</dd>
 
@@ -24,7 +24,7 @@
                 <del>N</del>
                 {{product.price}}
               </dd>
-            </dl>
+            </dl>-->
           </figcaption>
           <div class="card-footer container">
             <router-link
@@ -75,8 +75,8 @@ export default {
         dangerMode: true
       }).then(willDelete => {
         if (willDelete) {
-          axios
-            .delete(`http://localhost:3000/products/${id}`)
+          this.$http
+            .delete(`products/${id}`)
             .then(response => {
               this.$router.push({ path: "/vendor/" });
             })

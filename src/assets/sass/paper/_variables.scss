@@ -40,9 +40,9 @@ $default-states-color: #403D39 !default;
 
 $primary-color: #0275d8 !default;
 $primary-bg: #0275d8 !default;
-$primary-states-color: #427C89 !default;
+$primary-states-color: #0d5fb5 !default;
 
-$success-color: #41B883 !default;   // this is the green color from Vue.js branding
+$success-color: #41B883 !default; // this is the green color from Vue.js branding
 $success-bg: #41B883 !default;
 $success-states-color: #229863 !default;
 
@@ -147,7 +147,8 @@ $line-height-lg: 54px !default;
 $border-radius-top: 10px 10px 0 0 !default;
 $border-radius-bottom: 0 0 10px 10px !default;
 
-$dropdown-shadow: 0 2px rgba(17, 16, 15, 0.1), 0 2px 10px rgba(17, 16, 15, 0.1);
+$dropdown-shadow: 0 2px rgba(17, 16, 15, 0.1),
+0 2px 10px rgba(17, 16, 15, 0.1);
 
 $general-transition-time: 300ms !default;
 

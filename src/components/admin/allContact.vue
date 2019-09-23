@@ -11,7 +11,7 @@
               <th scope="col">Email</th>
               <th scope="col" colspan="4">Message</th>
               <th scope="col">Date</th>
-               <th scope="col">Action</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -22,7 +22,12 @@
               <td>{{contact.email}}</td>
               <td colspan="4">{{contact.message}}</td>
               <td>{{contact.createdDate}}</td>
-              <td><button class="btn btn-danger btn-sm" @click.prevent="deleteContact(contact._id)">Delete</button></td>
+              <td>
+                <button
+                  class="btn btn-danger btn-sm"
+                  @click.prevent="deleteContact(contact._id)"
+                >Delete</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -41,8 +46,8 @@ export default {
   },
   methods: {
     getContacts() {
-      axios
-        .get("http://localhost:3000/contact")
+      this.$http
+        .get("contact")
         .then(response => {
           this.contacts = response.data;
           console.log(this.contacts);
@@ -62,8 +67,8 @@ export default {
         dangerMode: true
       }).then(willDelete => {
         if (willDelete) {
-          axios
-            .delete(`http://localhost:3000/contact/${id}`)
+          this.$http
+            .delete(`contact/${id}`)
             .then(response => {
               this.$router.push({ path: "/admin/dashboard" });
             })

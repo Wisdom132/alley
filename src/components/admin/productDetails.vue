@@ -66,7 +66,9 @@
                     <dd class="col-sm-9">{{product.state}}</dd>
                   </dl>
                   <hr />
-                  <h5><b>Vendor Detals</b> </h5>
+                  <h5>
+                    <b>Vendor Detals</b>
+                  </h5>
                   <div class="row">
                     <div class="col-sm-8">
                       <h5>{{product.vendor[0].f_name}} {{product.vendor[0].l_name}}</h5>
@@ -120,7 +122,7 @@ export default {
     },
 
     getProduct(id) {
-      axios.get("http://localhost:3000/products/" + id).then(response => {
+      this.$http.get("products/" + id).then(response => {
         this.imageList = response.data.files;
         this.product = response.data;
         console.log(this.product);

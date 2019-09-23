@@ -3,6 +3,7 @@
     <!-- <nav-bar /> -->
     <main-head />
     <home-about />
+    <story />
     <!-- <home-service /> -->
     <top-cities />
     <!-- <home-blog /> -->

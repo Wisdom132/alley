@@ -2,50 +2,22 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/admin/dashboard" name="Dashboard" icon="ti-panel"/>
+        <sidebar-link to="/admin/dashboard" name="Dashboard" icon="ti-panel" />
         <!-- <sidebar-link to="/admin/stats" name="User Profile" icon="ti-user"/> -->
-        <sidebar-link to="/admin/vendors" name="All Vendors" icon="ti-view-list-alt"/>
-        <sidebar-link to="/admin/users" name="All Users" icon="ti-text"/>
-        <sidebar-link to="/admin/products" name="All Products" icon="ti-pencil-alt2"/>
-        <sidebar-link to="/admin/orders" name='All Orders' icon="ti-map"/>
-        <sidebar-link to="/admin/contact" name="Contact" icon="ti-bell"/>
-        <sidebar-link to="/admin/allblog" name="All Blogs" icon="ti-bell"/>
-        <sidebar-link to="/admin/addblog" name="Add Blog" icon="ti-bell"/>
-        <sidebar-link to="/admin/notifications" name="Notifications" icon="ti-bell"/>
-
+        <sidebar-link to="/admin/vendors" name="All Vendors" icon="ti-view-list-alt" />
+        <!-- <sidebar-link to="/admin/users" name="All Users" icon="ti-text"/> -->
+        <sidebar-link to="/admin/products" name="All Products" icon="ti-pencil-alt2" />
+        <sidebar-link to="/admin/orders" name="All Orders" icon="ti-map" />
+        <sidebar-link to="/admin/contact" name="Contact" icon="ti-bell" />
+        <sidebar-link to="/admin/allblog" name="All Blogs" icon="ti-bell" />
+        <sidebar-link to="/admin/addblog" name="Add Blog" icon="ti-bell" />
+        <sidebar-link to="/" name="Logout" icon="ti-bell" />
       </template>
-      <mobile-menu>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="ti-panel"></i>
-            <p>Stats</p>
-          </a>
-        </li>
-        <drop-down class="nav-item"
-                   title="5 Notifications"
-                   title-classes="nav-link"
-                   icon="ti-bell">
-          <a class="dropdown-item">Notification 1</a>
-          <a class="dropdown-item">Notification 2</a>
-          <a class="dropdown-item">Notification 3</a>
-          <a class="dropdown-item">Notification 4</a>
-          <a class="dropdown-item">Another notification</a>
-        </drop-down>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="ti-settings"></i>
-            <p>Settings</p>
-          </a>
-        </li>
-        <li class="divider"></li>
-      </mobile-menu>
     </side-bar>
     <div class="main-panel">
       <top-navbar></top-navbar>
 
-      <dashboard-content @click.native="toggleSidebar">
-
-      </dashboard-content>
+      <dashboard-content @click.native="toggleSidebar"></dashboard-content>
 
       <content-footer></content-footer>
     </div>
@@ -75,6 +47,5 @@ export default {
 };
 </script>
 <style scoped>
- 
 </style>
 

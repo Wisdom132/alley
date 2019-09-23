@@ -57,7 +57,7 @@
                       <input type="text" v-model="users.location" class="form-control" />
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary btn-block">Register</button>
+                      <button type="submit" class="btn btn-primary btn-block btn-sm">Request</button>
                     </div>
                     <small class="text-muted">
                       By clicking the 'Sign Up' button, you confirm that you accept our
@@ -129,9 +129,7 @@
             <dl>
               <dt>Description</dt>
               <dd>
-                <p>
-                  {{product.description}}
-                </p>
+                <p>{{product.description}}</p>
               </dd>
             </dl>
             <dl class="row">
@@ -159,7 +157,7 @@
             <hr />
             <button
               type="button"
-              class="btn btn-primary"
+              class="btn btn-primary btn-sm"
               data-toggle="modal"
               data-target="#exampleModaluser"
             >Request</button>
@@ -173,7 +171,7 @@
 </template>
 
 <script>
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import axios from "axios";
 import fancyBox from "vue-fancybox";
 import navbar from "@/components/home/navbar";
@@ -199,8 +197,8 @@ export default {
       fancyBox(e.target, this.imageList);
     },
     getProduct(id) {
-      axios
-        .get("http://localhost:3000/products/" + id)
+      this.$http
+        .get("products/" + id)
         .then(response => {
           this.imageList = response.data.files;
           this.product = response.data;
@@ -210,17 +208,17 @@ export default {
         });
     },
     order() {
-      const id = this.product._id
+      const id = this.product._id;
       let request = {
-        product:id,
+        product: id,
         f_name: this.users.f_name,
         l_name: this.users.l_name,
         email: this.users.email,
         phone: this.users.phone,
         location: this.users.location
       };
-      axios
-        .post("http://localhost:3000/orders",request)
+      this.$http
+        .post("orders", request)
         .then(response => {
           console.log(response);
           // console.log(this.product._id);
@@ -228,8 +226,12 @@ export default {
         .catch(err => {
           console.log({ err: err });
         });
-        this.users= [],
-        swal("Request Sent", "Your Request has been sent successfully.", "success");
+      (this.users = []),
+        swal(
+          "Request Sent",
+          "Your Request has been sent successfully.",
+          "success"
+        );
     }
   },
   created() {
