@@ -13,7 +13,7 @@
                         <img
                           @click="open($event)"
                           class="img-fluid"
-                          :src="`http://localhost:3000/${order.product.files[0].path}`"
+                          :src="`https://calm-headland-54682.herokuapp.com/${order.product.files[0].path}`"
                         />
                       </div>
                       <div class="img-small-wrap">
@@ -26,7 +26,7 @@
                           <img
                             @click="open($event)"
                             class="img-fluid"
-                            :src="`http://localhost:3000/${n.path}`"
+                            :src="`https://calm-headland-54682.herokuapp.com/${n.path}`"
                           />
                         </div>
                       </div>

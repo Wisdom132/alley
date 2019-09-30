@@ -4,7 +4,10 @@
       <div class="col-md-4" v-for="(product, index) in newProduct" :key="index">
         <figure class="card card-product shadow mx-auto" style="width:18rem">
           <div class="img-wrap">
-            <img :src="'http://localhost:3000/'+product.files[1].path" class="card-image-top" />
+            <img
+              :src="'https://calm-headland-54682.herokuapp.com/'+product.files[1].path"
+              class="card-image-top"
+            />
           </div>
           <figcaption class="info-wrap container">
             <h4 class="title">{{product.name}}</h4>
