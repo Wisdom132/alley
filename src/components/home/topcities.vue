@@ -8,10 +8,13 @@
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-4 col-xl-3 col-sm-2" v-for="city in cities" :key="city.id">
-          <div class="card bg-dark text-white">
+          <div class="card bg-dark text-white" @click="topCitites(city.name)">
             <img class="card-img" :src="city.image" alt="Card image" />
             <div class="card-img-overlay text-center py-auto">
-              <h5 class="card-title text-light" style="top:50%;position:relative">{{city.name}}</h5>
+              <h5
+                class="card-title text-light"
+                style="top:50%;position:relative;text-transform:capitalize;"
+              >{{city.name}}</h5>
             </div>
           </div>
         </div>
@@ -20,36 +23,53 @@
   </section>
 </template>
 <script>
+import swal from "sweetalert";
+import axios from "axios";
 export default {
   data() {
     return {
       cities: [
         {
           id: 1,
-          name: "Uyo",
+          name: "uyo",
           image:
             "https://www.naijaloaded.com.ng/wp-content/uploads/2017/09/BtzpWRvIAAAuf1g.jpg"
         },
         {
           id: 2,
-          name: "Eket",
+          name: "eket",
           image:
             "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/02/Lagos.jpg"
         },
         {
           id: 3,
-          name: "Abak",
+          name: "abak",
           image:
             "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/02/Obudu-Calabar.jpg"
         },
         {
           id: 4,
-          name: "Ikot ekpene",
+          name: "ikot ekpene",
           image:
             "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/02/Abuja-Residential-Area.jpg"
         }
       ]
     };
+  },
+  methods: {
+    topCitites(id) {
+      this.$http
+        .get("products/query?city=" + id)
+        .then(response => {
+          this.$router.push({
+            path: "/product"
+          });
+          console.log(response);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 };
 </script>

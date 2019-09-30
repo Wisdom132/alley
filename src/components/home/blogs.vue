@@ -4,7 +4,11 @@
       <div class="row mt-4">
         <div class="col-md-4" v-for="(blog, index) in blogs" :key="index">
           <div class="card shadow mx-auto" style="width: 18rem;">
-            <img :src="'http://localhost:3000/'+blog.blogImage" class="card-image-top" alt="..." />
+            <img
+              :src="'http://https://calm-headland-54682.herokuapp.com/'+blog.blogImage"
+              class="card-image-top"
+              alt="..."
+            />
             <div class="card-body">
               <h4 class="card-title mb-4">
                 <b>{{blog.title}}</b>

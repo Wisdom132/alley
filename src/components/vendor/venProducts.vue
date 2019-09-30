@@ -9,22 +9,6 @@
           <figcaption class="info-wrap container">
             <h4 class="title">{{product.name}}</h4>
             <p class="desc">{{product.description |truncate}}</p>
-            <!-- <dl class="row">
-              <dt class="col-sm-3">Street</dt>
-              <dd class="col-sm-9">{{product.street}}</dd>
-
-              <dt class="col-sm-3">City</dt>
-              <dd class="col-sm-9">{{product.city}}</dd>
-
-              <dt class="col-sm-3">State</dt>
-              <dd class="col-sm-9">{{product.state}}</dd>
-
-              <dt class="col-sm-3">Price</dt>
-              <dd class="col-sm-9">
-                <del>N</del>
-                {{product.price}}
-              </dd>
-            </dl>-->
           </figcaption>
           <div class="card-footer container">
             <router-link
@@ -43,6 +27,15 @@
         </figure>
       </div>
     </div>
+    <p class="text-center mb-0">{{currentPage+1 }} / {{ pages }}</p>
+    <ul class="pagination justify-content-center">
+      <li class="page-item" :class="{disabled: prevUrl === ''}">
+        <button class="page-link" @click="checkPage(prevUrl)">Previous</button>
+      </li>
+      <li class="page-item" :class="{disabled: nextUrl === ''}">
+        <button class="page-link" @click="checkPage(nextUrl)">Next</button>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -54,7 +47,11 @@ export default {
     return {
       products: [],
       newProduct: [],
-      files: ""
+      files: "",
+      currentPage: "",
+      pages: "",
+      prevUrl: "",
+      nextUrl: ""
     };
   },
   filters: {
@@ -91,9 +88,9 @@ export default {
         }
       });
     },
-    getProducts() {
-      axios
-        .get("http://localhost:3000/products")
+    getProducts(page = 1) {
+      this.$http
+        .get("products?page" + page)
         .then(response => {
           // console.log(response);
 
@@ -104,7 +101,12 @@ export default {
           let decodedId = decoded.userId;
 
           // get vendor that created product
-          this.products = response.data;
+          this.products = response.data.products;
+          this.currentPage = response.data.currentPage;
+          this.pages = response.data.pages;
+          this.nextUrl = response.data.nextUrl;
+          this.prevUrl = response.data.prevUrl;
+          console.log(this.products);
           const products = this.products;
           let id;
 
@@ -123,6 +125,15 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    checkPage(url) {
+      this.$http.get(url).then(response => {
+        this.newProduct = response.data.products;
+        this.currentPage = response.data.currentPage;
+        this.pages = response.data.pages;
+        this.nextUrl = response.data.nextUrl;
+        this.prevUrl = response.data.prevUrl;
+      });
     }
   },
   created() {

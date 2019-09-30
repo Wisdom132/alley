@@ -134,7 +134,7 @@ export default {
           swal("ok", "signup successful", "success");
           console.log(response);
           this.$router.push({
-            path: "/login"
+            path: "/vendorlogin"
           });
         })
         .catch(e => {

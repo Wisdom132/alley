@@ -5,8 +5,12 @@ import axios from "axios";
 // import swal from "sweetalert";
 // import VueSweetalert2 from 'vue-sweetalert2';
 
+// const http = axios.create({
+//   baseURL: "http://localhost:3000/"
+// });
+
 const http = axios.create({
-  baseURL: "http://localhost:3000/"
+  baseURL: "http://calm-headland-54682.herokuapp.com/"
 });
 Vue.prototype.$http = http;
 

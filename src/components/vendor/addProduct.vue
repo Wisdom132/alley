@@ -192,6 +192,7 @@ export default {
         .post("products", formData)
         .then(response => {
           this.products = [];
+          this.files = [];
           this.loading = false;
           swal("yea", "updated successfully", "success");
           console.log(response);
