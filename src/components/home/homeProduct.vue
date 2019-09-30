@@ -10,7 +10,7 @@
         <figure class="card card-product shadow mx-auto" style="width:18rem;">
           <div class="img-wrap">
             <img
-              :src="'http://https://calm-headland-54682.herokuapp.com/'+product.files[1].path"
+              :src="'https://calm-headland-54682.herokuapp.com/'+product.files[1].path"
               class="card-image-top"
             />
           </div>

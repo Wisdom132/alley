@@ -5,7 +5,7 @@
         <div class="col-md-4" v-for="(blog, index) in blogs" :key="index">
           <div class="card shadow mx-auto" style="width: 18rem;">
             <img
-              :src="'http://https://calm-headland-54682.herokuapp.com/'+blog.blogImage"
+              :src="'https://calm-headland-54682.herokuapp.com/'+blog.blogImage"
               class="card-image-top"
               alt="..."
             />

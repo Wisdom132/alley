@@ -92,7 +92,7 @@
                 <img
                   @click="open($event)"
                   class="img-fluid"
-                  :src="`http://https://calm-headland-54682.herokuapp.com/${n.path}`"
+                  :src="`https://calm-headland-54682.herokuapp.com/${n.path}`"
                 />
               </div>
             </div>
@@ -107,7 +107,7 @@
                 <img
                   @click="open($event)"
                   class="img-fluid"
-                  :src="`http://https://calm-headland-54682.herokuapp.com/${n.path}`"
+                  :src="`https://calm-headland-54682.herokuapp.com/${n.path}`"
                 />
               </div>
             </div>
