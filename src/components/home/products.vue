@@ -58,7 +58,7 @@
             :key="index"
           >
             <div class="card mx-autot" style="width: auto;">
-              <img :src="'http://https://calm-headland-54682.herokuapp.com//'+product.files[1].path" class="card-image-top" />
+              <img :src="'http://https://calm-headland-54682.herokuapp.com/'+product.files[1].path" class="card-image-top" />
               <div class="card-body mb-2">
                 <h5 class="card-title mb-2">
                   <b>{{product.name}}</b>
