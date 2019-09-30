@@ -10,7 +10,7 @@ import axios from "axios";
 // });
 
 const http = axios.create({
-  baseURL: "http://calm-headland-54682.herokuapp.com/"
+  baseURL: "https://calm-headland-54682.herokuapp.com/"
 });
 Vue.prototype.$http = http;
 
