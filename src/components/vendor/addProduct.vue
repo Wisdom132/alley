@@ -200,7 +200,6 @@ export default {
         .catch(err => {
           this.loading = false;
           console.log(err);
-          this.products = [];
           swal("oops", "Please fill the details properly", "error");
         });
     }

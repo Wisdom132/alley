@@ -7,6 +7,7 @@ import home from "@/pages/home.vue";
 import homeProduct from "@/pages/homeProduct";
 import uniqueProduct from "@/components/home/uniqueProduct";
 import login from "@/pages/login";
+import signin from "@/pages/signin";
 import adminLogin from "@/pages/adminLogin";
 import allBlogs from "@/pages/allBlogs";
 
@@ -138,6 +139,7 @@ const routes = [
   },
   { path: "*", component: NotFound },
   { path: "/vendorlogin", component: login, name: "login" },
+  { path: "/signin", component: signin, name: "signin" },
   { path: "/adminlogin", component: adminLogin, name: "adminLogin" },
   {
     path: "/",

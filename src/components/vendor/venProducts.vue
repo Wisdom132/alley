@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row" v-if="newProduct.length == 0">
+      <div class="col-md-12">
+        <div class="alert alert-danger text-light">Hello You dont Have any Products yet</div>
+      </div>
+    </div>
+    <div class="row" v-else>
       <div class="col-md-4" v-for="(product, index) in newProduct" :key="index">
         <figure class="card card-product shadow mx-auto" style="width:18rem">
           <div class="img-wrap">
@@ -29,16 +34,18 @@
           </div>
         </figure>
       </div>
+      <div class="text-center">
+        <p class="text-center mb-0">{{currentPage+1 }} / {{ pages }}</p>
+        <ul class="pagination justify-content-center">
+          <li class="page-item" :class="{disabled: prevUrl === ''}">
+            <button class="page-link" @click="checkPage(prevUrl)">Previous</button>
+          </li>
+          <li class="page-item" :class="{disabled: nextUrl === ''}">
+            <button class="page-link" @click="checkPage(nextUrl)">Next</button>
+          </li>
+        </ul>
+      </div>
     </div>
-    <p class="text-center mb-0">{{currentPage+1 }} / {{ pages }}</p>
-    <ul class="pagination justify-content-center">
-      <li class="page-item" :class="{disabled: prevUrl === ''}">
-        <button class="page-link" @click="checkPage(prevUrl)">Previous</button>
-      </li>
-      <li class="page-item" :class="{disabled: nextUrl === ''}">
-        <button class="page-link" @click="checkPage(nextUrl)">Next</button>
-      </li>
-    </ul>
   </div>
 </template>
 

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form>
+          <form @submit.prevent="editProfile(profile.userId)">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">first name</label>
@@ -12,7 +12,7 @@
                   class="form-control"
                   id="inputEmail4"
                   placeholder="first name"
-                  v-model="profile.f_name"
+                  v-model="vendor.f_name"
                 />
               </div>
               <div class="form-group col-md-6">
@@ -22,7 +22,7 @@
                   class="form-control"
                   id="inputPassword4"
                   placeholder="last name"
-                  v-model="profile.l_name"
+                  v-model="vendor.l_name"
                 />
               </div>
             </div>
@@ -34,8 +34,7 @@
                   class="form-control"
                   id="inputEmail4"
                   placeholder="email"
-                  v-model="profile.email"
-                  disabled
+                  v-model="vendor.email"
                 />
               </div>
               <div class="form-group col-md-6">
@@ -45,7 +44,7 @@
                   class="form-control"
                   id="inputPassword4"
                   placeholder="phone"
-                  v-model="profile.phone"
+                  v-model="vendor.phone"
                 />
               </div>
             </div>
@@ -56,7 +55,7 @@
                   class="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
-                  v-model="profile.address"
+                  v-model="vendor.address"
                 ></textarea>
               </div>
             </div>
@@ -68,7 +67,7 @@
                   class="form-control"
                   id="inputEmail4"
                   placeholder="agency name"
-                  v-model="profile.agency"
+                  v-model="vendor.agency"
                 />
               </div>
               <div class="form-group col-md-6">
@@ -77,11 +76,19 @@
                   type="text"
                   class="form-control"
                   id="inputPassword4"
-                  v-model="profile.agency_address"
+                  v-model="vendor.agency_address"
                   placeholder="agency address"
                 />
               </div>
-              <button class="btn btn-primary btn-sm">Edit</button>
+              <button class="btn btn-primary btn-sm">
+                <span
+                  class="spinner-border spinner-border-sm"
+                  type="submit"
+                  v-if="loading"
+                  role="status"
+                  aria-hidden="true"
+                ></span>Edit
+              </button>
             </div>
           </form>
         </div>
@@ -91,13 +98,42 @@
 </template>
 <script>
 import VueJwtDecode from "vue-jwt-decode";
+import swal from "sweetalert";
+import axios from "axios";
 export default {
   data() {
     return {
-      profile: []
+      // vendor: {
+      //   f_name: "",
+      //   l_name: "",
+      //   phone: "",
+      //   address: "",
+      //   email: "",
+      //   agency: "",
+      //   agency_address: ""
+      // },
+      profile: [],
+      loading: false,
+      vendor: {}
     };
   },
   methods: {
+    editProfile(id) {
+      this.loading = true;
+      let vendor = {};
+      this.$http
+        .put("vendor/" + id, { vendor: this.vendor })
+        .then(response => {
+          this.loading = false;
+          console.log(response);
+          swal("Yea", "Edited successfully", "success");
+        })
+        .catch(err => {
+          this.loading = false;
+          swal("Oop", "Something Went Wrong", "error");
+          console.log(err);
+        });
+    },
     getProfile() {
       let info = localStorage.getItem("jwtToken");
       let decoded = VueJwtDecode.decode(info);
@@ -106,19 +142,23 @@ export default {
       console.log(this.profile);
     },
 
-    getClasses(index) {
-      var remainder = index % 3;
-      if (remainder === 0) {
-        return "col-lg-3 offset-lg-1";
-      } else if (remainder === 2) {
-        return "col-lg-4";
-      } else {
-        return "col-lg-3";
-      }
+    getDetails() {
+      this.$http
+        .get("vendor/" + this.profile.userId)
+        .then(response => {
+          this.vendor = response.data;
+          console.log({ vendor: this.vendor });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   created() {
     this.getProfile();
+  },
+  mounted() {
+    this.getDetails();
   }
 };
 </script>

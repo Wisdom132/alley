@@ -29,30 +29,19 @@
               <router-link class="nav-link" to="/vendorlogin">Login</router-link>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href="#"
-                data-toggle="modal"
-                data-target="#exampleModalsignup"
-              >Sign up</a>
+              <router-link class="nav-link" to="/signin">signup</router-link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <signup />
   </div>
 </template>
 
 <script>
 // import login from '@/pages/login'
-import signup from "@/components/home/signup";
 
-export default {
-  components: {
-    signup
-  }
-};
+export default {};
 </script>
 
 <style scoped>
