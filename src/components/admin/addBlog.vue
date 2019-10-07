@@ -74,7 +74,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      loadin: false,
+      loading: false,
       file: "",
       blog: []
     };

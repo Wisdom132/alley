@@ -90,11 +90,11 @@ export default {
             .catch(err => {
               console.log(err);
             });
-          swal("Poof! Your imaginary file has been deleted!", {
+          swal("Poof! This File has been deleted!", {
             icon: "success"
           });
         } else {
-          swal("Your imaginary file is safe!");
+          swal("Your file is safe!");
         }
       });
     },

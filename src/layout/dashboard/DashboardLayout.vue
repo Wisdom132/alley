@@ -2,16 +2,16 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/admin/dashboard" name="Dashboard" icon="ti-panel" />
+        <sidebar-link to="/admin/dashboard" name="Dashboard" icon="ti-view-grid" />
         <!-- <sidebar-link to="/admin/stats" name="User Profile" icon="ti-user"/> -->
-        <sidebar-link to="/admin/vendors" name="All Vendors" icon="ti-view-list-alt" />
+        <sidebar-link to="/admin/vendors" name="All Vendors" icon="ti-user" />
         <!-- <sidebar-link to="/admin/users" name="All Users" icon="ti-text"/> -->
         <sidebar-link to="/admin/products" name="All Products" icon="ti-pencil-alt2" />
-        <sidebar-link to="/admin/orders" name="All Orders" icon="ti-map" />
+        <sidebar-link to="/admin/orders" name="All Orders" icon="ti-pin-alt" />
         <sidebar-link to="/admin/contact" name="Contact" icon="ti-bell" />
-        <sidebar-link to="/admin/allblog" name="All Blogs" icon="ti-bell" />
-        <sidebar-link to="/admin/addblog" name="Add Blog" icon="ti-bell" />
-        <sidebar-link to="/" name="Logout" icon="ti-bell" />
+        <sidebar-link to="/admin/allblog" name="All Blogs" icon="ti-book" />
+        <sidebar-link to="/admin/addblog" name="Add Blog" icon="ti-pencil-alt2" />
+        <sidebar-link to="/" name="Logout" icon="ti-back-left" />
       </template>
     </side-bar>
     <div class="main-panel">

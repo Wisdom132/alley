@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <form @submit.prevent="addProduct" enctype="multipart/form-data">
         <div class="row">
-          <card class="card col-md-8" title="Edit Profile">
+          <card class="card col-md-8" title="Add Product">
             <div class="row">
               <div class="col-md-5">
                 <fg-input
@@ -17,7 +17,7 @@
               <div class="col-md-3">
                 <fg-input
                   type="number"
-                  label="Amount per Month"
+                  label="Amount per Year"
                   placeholder="#30,000"
                   v-model="products.price"
                 ></fg-input>
@@ -55,7 +55,12 @@
             </div>
 
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 mb-2">
+                <label>Features</label>
+                <!-- <input-tag
+                  v-model="products.features"
+                  placeholder="press enter to add all features"
+                ></input-tag>-->
                 <fg-input
                   type="text"
                   label="Features"
@@ -129,10 +134,14 @@
   </div>
 </template>
 <script>
+import InputTag from "vue-input-tag";
 import swal from "sweetalert";
 import axios from "axios";
 import _ from "lodash";
 export default {
+  components: {
+    "input-tag": InputTag
+  },
   data() {
     return {
       files: [],
@@ -183,11 +192,12 @@ export default {
       formData.append("street", this.products.street);
       formData.append("city", this.products.city);
       formData.append("state", this.products.state);
-      formData.append("feature", this.products.feature);
+      formData.append("features", this.products.features);
       formData.append("description", this.products.description);
       axios.defaults.headers.common["Authorization"] = localStorage.getItem(
         "jwtToken"
       );
+      debugger;
       this.$http
         .post("products", formData)
         .then(response => {
@@ -206,5 +216,8 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
+.vue-input-tag-wrapper {
+  border-radius: 5px !important;
+}
 </style>

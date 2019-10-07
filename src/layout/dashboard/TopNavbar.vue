@@ -17,7 +17,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="ti-panel"></i>
+              <i class="ti-face-smile"></i>
               <p>Hello</p>
             </a>
           </li>

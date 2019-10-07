@@ -23,7 +23,7 @@
               />
               <span class="focus-input100"></span>
               <span class="symbol-input100">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <i class="ti-email"></i>
               </span>
             </div>
 
@@ -37,7 +37,7 @@
               />
               <span class="focus-input100"></span>
               <span class="symbol-input100">
-                <i class="fa fa-lock" aria-hidden="true"></i>
+                <i class="ti-lock" aria-hidden="true"></i>
               </span>
             </div>
 
@@ -60,7 +60,7 @@
             <div class="text-center p-t-136">
               <router-link to="/signin" class="txt2">
                 Create your Account
-                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                <i class="ti-unlock"></i>
               </router-link>
             </div>
           </form>

@@ -1,11 +1,11 @@
 <template>
-  <div id="over">
-    <div class="container">
+  <div id="over" class="magic-ball">
+    <div class="container magic-ball">
       <div class="row">
         <div class="col-md-6 mx-auto">
           <div class="card p-5 mt-4 shadow">
             <form @submit.prevent="onSubmit">
-              <div class="form-row">
+              <div class="form-row magic-ball">
                 <div class="col form-group">
                   <label>First name</label>
                   <input type="text" class="form-control" placeholder v-model="register.f_name" />
@@ -54,7 +54,7 @@
                   v-model="register.agency_address"
                 />
               </div>
-              <div class="form-row">
+              <div class="form-row magic-ball">
                 <div class="col form-group">
                   <label>Create Password</label>
                   <input
@@ -76,7 +76,7 @@
                     v-if="loading"
                     role="status"
                     aria-hidden="true"
-                  ></span>Register
+                  ></span>Sign Up
                 </button>
               </div>
               <small class="text-muted">
@@ -127,6 +127,99 @@ export default {
 
 <style scoped>
 #over {
-  background: #eeeeee !important;
+  margin-top: 100px;
+  background: white !important;
+}
+.magic-ball {
+  position: relative;
+}
+
+.magic-ball::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 8px solid #1004f3;
+  opacity: 0.5;
+  position: absolute;
+  bottom: -68px;
+  left: -15px;
+}
+
+@media (min-width: 768px) {
+  .magic-ball::before {
+    width: 70px;
+    height: 70px;
+    left: -35px;
+    border: 15px solid #0d5fb5;
+  }
+}
+
+.magic-ball::after {
+  content: "";
+  display: block;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #ebebff;
+  opacity: 0.5;
+  position: absolute;
+  bottom: -263px;
+  left: 70px;
+}
+
+@media (min-width: 768px) {
+  .magic-ball::after {
+    width: 98px;
+    height: 98px;
+    left: 165px;
+  }
+}
+
+.magic-ball-about::before {
+  top: 265px;
+  left: -32px;
+}
+
+.magic-ball-about::after {
+  top: 65px;
+  left: 135px;
+}
+
+.magic-ball-testimonial::before {
+  top: 265px;
+  left: -32px;
+}
+
+.magic-ball-testimonial::after {
+  top: 130px;
+  left: 135px;
+}
+
+.magic-ball-banner::before {
+  top: 80px;
+  left: 130px;
+}
+
+.magic-ball-banner::after {
+  width: 70px;
+  height: 70px;
+  top: 270px;
+  left: 170px;
+}
+
+.magic-ball-sm::before {
+  width: 60px;
+  height: 60px;
+  top: 280px;
+  left: -25px;
+}
+
+.magic-ball-sm::after {
+  width: 60px;
+  height: 60px;
+  top: 160px;
+  left: 80px;
 }
 </style>

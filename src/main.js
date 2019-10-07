@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router/index";
 import axios from "axios";
+import moment from "moment";
+
+Vue.use(moment);
 // import swal from "sweetalert";
 // import VueSweetalert2 from 'vue-sweetalert2';
 

@@ -14,16 +14,16 @@
           </div>
           <div class="footer-social">
             <a href="#">
-              <i class="fa fa-facebook"></i>
+              <span class="ti-facebook"></span>
             </a>
             <a href="#">
-              <i class="fa fa-twitter"></i>
+              <span class="ti-linkedin"></span>
             </a>
             <a href="#">
-              <i class="fa fa-dribbble"></i>
+              <span class="ti-twitter-alt"></span>
             </a>
             <a href="#">
-              <i class="fa fa-behance"></i>
+              <span class="ti-tumblr-alt"></span>
             </a>
           </div>
         </div>

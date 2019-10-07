@@ -21,7 +21,7 @@
               <td>{{contact.phone}}</td>
               <td>{{contact.email}}</td>
               <td colspan="4">{{contact.message}}</td>
-              <td>{{contact.createdDate}}</td>
+              <td>{{contact.createdDate | moment}}</td>
               <td>
                 <button
                   class="btn btn-danger btn-sm"
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import moment from "moment";
 import axios from "axios";
 export default {
   data() {
@@ -60,8 +61,7 @@ export default {
     deleteContact(id) {
       swal({
         title: "Are you sure?",
-        text:
-          "Once deleted, you will not be able to recover this imaginary file!",
+        text: "Once deleted, you will not be able to recover this information!",
         icon: "warning",
         buttons: true,
         dangerMode: true
@@ -75,13 +75,18 @@ export default {
             .catch(err => {
               console.log(err);
             });
-          swal("Poof! Your imaginary file has been deleted!", {
+          swal("Poof! This information has been deleted!", {
             icon: "success"
           });
         } else {
-          swal("Your imaginary file is safe!");
+          swal("Your information is safe!");
         }
       });
+    }
+  },
+  filters: {
+    moment: function(date) {
+      return moment(date).format("MMMM Do YYYY, h:mm:ss a");
     }
   },
   created() {

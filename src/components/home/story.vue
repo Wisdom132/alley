@@ -8,10 +8,10 @@
             <div class="story-box">
               <h6 class="text-uppercase">About US</h6>
               <p>Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization. Societies are becoming more inter-connected. Thoughts from different</p>
-              <a href="#" class="btn btn-primary btn-sm">
+              <router-link to="/signin" class="btn btn-primary btn-sm">
                 Get Started
-                <span class="lnr lnr-arrow-right"></span>
-              </a>
+                <span class="ti-arrow-right"></span>
+              </router-link>
             </div>
           </div>
         </div>

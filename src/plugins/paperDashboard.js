@@ -16,4 +16,4 @@ export default {
     Vue.use(SideBar);
     Vue.use(Notify);
   }
-}
+};

@@ -23,7 +23,7 @@
               />
               <span class="focus-input100"></span>
               <span class="symbol-input100">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <i class="ti-email" aria-hidden="true"></i>
               </span>
             </div>
 
@@ -37,7 +37,7 @@
               />
               <span class="focus-input100"></span>
               <span class="symbol-input100">
-                <i class="fa fa-lock" aria-hidden="true"></i>
+                <i class="ti-lock" aria-hidden="true"></i>
               </span>
             </div>
 
@@ -52,15 +52,15 @@
               </button>
             </div>
 
-            <div class="text-center p-t-12">
+            <!-- <div class="text-center p-t-12">
               <span class="txt1">Forgot</span>
               <a class="txt2" href="#">Username / Password?</a>
-            </div>
+            </div>-->
 
             <div class="text-center p-t-136">
               <a class="txt2" href="#">
                 Create your Account
-                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                <i class="ti-lock" aria-hidden="true"></i>
               </a>
             </div>
           </form>

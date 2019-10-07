@@ -17,7 +17,7 @@
               <td>{{order.f_name}} {{order.l_name}}</td>
               <td>{{order.email}}</td>
               <td>{{order.phone}}</td>
-              <td>{{order.requestedDate}}</td>
+              <td>{{order.requestedDate | moment}}</td>
               <td>
                 <router-link :to="'/order/'+order._id" class="btn btn-primary btn-sm">Details</router-link>
               </td>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import moment from "moment";
 import axios from "axios";
 export default {
   data() {
@@ -48,6 +49,11 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    }
+  },
+  filters: {
+    moment: function(date) {
+      return moment(date).format("MMMM Do YYYY, h:mm:ss a");
     }
   },
   created() {

@@ -2,11 +2,11 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/vendor/dashboard" name="Dashboard" icon="ti-panel" />
+        <sidebar-link to="/vendor/dashboard" name="Dashboard" icon="ti-view-grid" />
         <sidebar-link to="/vendor/profile" name="My Profile" icon="ti-user" />
         <sidebar-link to="/vendor/products" name="My Products" icon="ti-view-list-alt" />
-        <sidebar-link to="/vendor/addproduct" name="Add Product" icon="ti-text" />
-        <sidebar-link to="/" name="Logout" icon="ti-bell" />
+        <sidebar-link to="/vendor/addproduct" name="Add Product" icon="ti-plus" />
+        <sidebar-link to="/" name="Logout" icon="ti-back-left" />
       </template>
     </side-bar>
     <div class="main-panel">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent border-0">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top border-0" id="navbar">
       <div class="container">
         <a class="navbar-brand text-dark" href="#">Alley</a>
         <button
@@ -39,8 +39,18 @@
 </template>
 
 <script>
-// import login from '@/pages/login'
+window.onscroll = function() {
+  myfunction();
+};
 
+function myfunction() {
+  let scroll = document.documentElement.scrollTop;
+  if (scroll > 40) {
+    document.getElementById("navbar").style.backgroundColor = "#0d5fb5";
+  } else {
+    document.getElementById("navbar").style.backgroundColor = "transparent";
+  }
+}
 export default {};
 </script>
 
@@ -48,6 +58,7 @@ export default {};
 @media (min-width: 998px) {
   .navbar {
     min-height: 50px !important;
+    background: transparent;
   }
 }
 .nav-link {

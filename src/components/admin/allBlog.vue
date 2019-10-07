@@ -20,7 +20,37 @@
                 class="btn btn-danger m-2 btn-sm"
                 @click.prevent="deletePost(blog._id)"
               >Delete</a>
-              <a href="#" class="btn btn-primary btn-sm">Edit</a>
+              <a
+                href="#"
+                class="btn btn-primary btn-sm"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >Edit</a>
+              <a href="#" class="btn btn-info btn-sm m-2">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
@@ -54,8 +84,7 @@ export default {
     deletePost(id) {
       swal({
         title: "Are you sure?",
-        text:
-          "Once deleted, you will not be able to recover this imaginary file!",
+        text: "Once deleted, you will not be able to recover this file!",
         icon: "warning",
         buttons: true,
         dangerMode: true
@@ -69,11 +98,11 @@ export default {
             .catch(err => {
               console.log(err);
             });
-          swal("Poof! Your imaginary file has been deleted!", {
+          swal("Poof! Your file has been deleted!", {
             icon: "success"
           });
         } else {
-          swal("Your imaginary file is safe!");
+          swal("Your file is safe!");
         }
       });
     }
@@ -96,5 +125,8 @@ export default {
 .card-img-top {
   min-height: 150px !important;
   width: 18rem;
+}
+.modal-backdrop .show {
+  display: none !important;
 }
 </style>
