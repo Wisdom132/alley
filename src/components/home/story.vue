@@ -7,11 +7,15 @@
           <div class="col-lg-7">
             <div class="story-box">
               <h6 class="text-uppercase">About US</h6>
-              <p>Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization. Societies are becoming more inter-connected. Thoughts from different</p>
-              <router-link to="/signin" class="btn btn-primary btn-sm">
-                Get Started
+              <p>
+                Alley is an authentic rental platform and online marketplace for Landlords, tenants and real estate agents. We are an alley between towns and and cities for accessing the best rental information for your specific needs.
+                We really appreciate feedback and respond quickly to accommodation requests.
+                If you seek to resolve any issues or seek accommodation in areas not listed on our platform
+              </p>
+              <a href="#contact" class="btn btn-primary btn-sm">
+                Contact Us
                 <span class="ti-arrow-right"></span>
-              </router-link>
+              </a>
             </div>
           </div>
         </div>

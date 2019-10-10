@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="contact-form-area" style="background-color:#0d5fb5">
+    <section id="contact" class="contact-form-area" style="background-color:#0d5fb5">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">

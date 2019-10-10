@@ -5,10 +5,10 @@
       <div class="container">
         <div class="row align-items-center text-center text-md-left">
           <div class="col-md-6 col-lg-5 mb-5 mb-md-0 col-sm-12">
-            <h1>Lorem ipsum dolor sit amet, consectetur.</h1>
+            <h1>RENT FOR EVERYONE...</h1>
             <p
               class="text-secondary"
-            >Air seed winged lights saw kind whales in sixth dont kind whales in sixth dont seas dron image so fish all tree meat dont there</p>
+            >we have an arsenal of world class and reliable agents on our platform.</p>
             <router-link class="btn btn-sm button-hero" to="/product">Get Started</router-link>
           </div>
           <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">

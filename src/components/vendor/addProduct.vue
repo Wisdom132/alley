@@ -57,16 +57,16 @@
             <div class="row">
               <div class="col-md-12 mb-2">
                 <label>Features</label>
-                <!-- <input-tag
+                <input-tag
                   v-model="products.features"
                   placeholder="press enter to add all features"
-                ></input-tag>-->
-                <fg-input
+                ></input-tag>
+                <!-- <fg-input
                   type="text"
                   label="Features"
                   placeholder="Constant Power Supply,Water,Kitchen"
                   v-model="products.features"
-                ></fg-input>
+                ></fg-input>-->
               </div>
             </div>
 

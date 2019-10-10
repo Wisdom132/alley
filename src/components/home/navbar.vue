@@ -42,13 +42,22 @@
 window.onscroll = function() {
   myfunction();
 };
+// (function() {
+//   document.getElementById("navbar").style.backgroundColor = "transparent";
+// })();
 
 function myfunction() {
   let scroll = document.documentElement.scrollTop;
   if (scroll > 40) {
     document.getElementById("navbar").style.backgroundColor = "#0d5fb5";
+    document.querySelectorAll(".nav-link").forEach(navlink => {
+      navlink.style.color = "white";
+    });
   } else {
     document.getElementById("navbar").style.backgroundColor = "transparent";
+    document.querySelectorAll(".nav-link").forEach(navlink => {
+      navlink.style.color = "black";
+    });
   }
 }
 export default {};
@@ -62,6 +71,6 @@ export default {};
   }
 }
 .nav-link {
-  color: black !important;
+  font-size: 32px;
 }
 </style>

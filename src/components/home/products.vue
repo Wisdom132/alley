@@ -1,6 +1,6 @@
 <template id="over">
-  <div class="container-fluid">
-    <div class="row">
+  <div class="container-fluid mt-5">
+    <div class="row mt-5" style="margin-top:90px !important;">
       <div class="col-md-3">
         <div>
           <div class="card shadow mt-4">
@@ -171,6 +171,7 @@ export default {
   width: 100%;
 }
 #over {
+  padding-bottom: 90px;
   background-color: whitesmoke !important;
 }
 .card-image-top {

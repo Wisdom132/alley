@@ -11,10 +11,10 @@
           <div class="card shadow-sm mx-auto" style="width: 18rem;">
             <img src="../images/home1.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title mb-2">Best Agents</h5>
+              <h5 class="card-title mb-2">Easy Rental Listing</h5>
               <p
                 class="card-text mv-3 text-secondary"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, necessitatibus?</p>
+              >Listing your property for rent has never been so easy, just register with us and list your property, for a wide variety of users to see.</p>
             </div>
           </div>
         </div>
@@ -22,10 +22,10 @@
           <div class="card shadow-sm mx-auto" style="width: 18rem;">
             <img src="../images/home2.png" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title mb-2">Look no further</h5>
+              <h5 class="card-title mb-2">Accessibility</h5>
               <p
                 class="card-text mb-3 text-secondary"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, omnis.</p>
+              >We provide you with rental information within your locale and beyond at the tip of your fingers. Get access to new listings, hottest offers and lots more with ease.</p>
             </div>
           </div>
         </div>
@@ -33,10 +33,10 @@
           <div class="card shadow-sm mx-auto" style="width: 18rem;">
             <img src="../images/office_worker.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
-              <h5 class="card-title mb-2">Best Services</h5>
+              <h5 class="card-title mb-2">24/7 Support</h5>
               <p
                 class="card-text mb-3 text-secondary"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, asperiores!</p>
+              >Our Support and Customer care are always available to answer to complaints and feedback.</p>
             </div>
           </div>
         </div>
