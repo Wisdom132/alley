@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-5" style="margin-top:150px !important;">
     <div class="container">
       <div class="row mt-4">
         <div class="col-md-4" v-for="(blog, index) in blogs" :key="index">
@@ -15,7 +15,7 @@
               </h4>
               <div class="badge badge-primary p-1">{{blog.category}}</div>
               <p class="card-text text-justify">{{blog.postBody | truncate}}</p>
-              <a href="#" class="btn btn-primary btn-sm">Read</a>
+              <router-link :to="'/uniqueBlog/'+ blog._id" class="btn btn-primary btn-sm">Read</router-link>
             </div>
           </div>
         </div>

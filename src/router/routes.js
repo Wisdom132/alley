@@ -9,6 +9,7 @@ import uniqueProduct from "@/components/home/uniqueProduct";
 import login from "@/pages/login";
 import signin from "@/pages/signin";
 import adminLogin from "@/pages/adminLogin";
+import uniqueBlog from "@/pages/uniqueBlog";
 import allBlogs from "@/pages/allBlogs";
 
 // Admin pages
@@ -155,6 +156,11 @@ const routes = [
     path: "/blogs",
     name: "allBlogs",
     component: allBlogs
+  },
+  {
+    path: "/uniqueBlog/:id",
+    name: "blog",
+    component: uniqueBlog
   },
   {
     path: "/uniqueProduct/:id",
