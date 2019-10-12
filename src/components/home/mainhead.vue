@@ -38,6 +38,11 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 768px) {
+  .hero-banner {
+    margin-top: 155px !important;
+  }
+}
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 * {
   font-family: "Poppins", sans-serif;

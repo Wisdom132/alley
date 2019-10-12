@@ -10,7 +10,7 @@
           </div>
           <div class="copy-right-text">
             Copyright &copy; 2017 | All rights reserved to
-            <a href="#" class="text-light">Alley.ng</a>| Designed by Wisdom
+            <a href="#" class="text-light">Alley.ng</a>
           </div>
           <div class="footer-social">
             <a href="#">

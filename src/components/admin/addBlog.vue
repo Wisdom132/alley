@@ -84,18 +84,6 @@ export default {
       this.file = this.$refs.file.files[0];
       console.log(this.file);
     },
-    // validate(file) {
-    //   const MAX_SIZE = 200000;
-    //   const allowedTypes = ["image/jpeg","image/png","image/svg"];
-
-    //   if(file.size > MAX_SIZE) {
-    //     return `MAX size ${MAX_SIZE/1000}kb`;
-    //   }
-    //   if(!allowedTypes.includes(file.type)) {
-    //     return 'This is not an image';
-    //   }
-    //   return ""
-    // },
     addProduct() {
       this.loading = true;
       let formData = new FormData();

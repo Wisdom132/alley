@@ -197,7 +197,6 @@ export default {
       axios.defaults.headers.common["Authorization"] = localStorage.getItem(
         "jwtToken"
       );
-      debugger;
       this.$http
         .post("products", formData)
         .then(response => {
