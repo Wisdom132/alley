@@ -38,6 +38,30 @@ export default {
     "home-product": homeProduct,
     contact: contact,
     "page-footer": footer
+  },
+  mounted() {
+    function initFreshChat() {
+      window.fcWidget.init({
+        token: "fcb59b3c-5d2c-49f7-8a88-98c3358632b8",
+        host: "https://wchat.freshchat.com"
+      });
+    }
+    function initialize(i, t) {
+      var e;
+      i.getElementById(t)
+        ? initFreshChat()
+        : (((e = i.createElement("script")).id = t),
+          (e.async = !0),
+          (e.src = "https://wchat.freshchat.com/js/widget.js"),
+          (e.onload = initFreshChat),
+          i.head.appendChild(e));
+    }
+    function initiateCall() {
+      initialize(document, "freshchat-js-sdk");
+    }
+    window.addEventListener
+      ? window.addEventListener("load", initiateCall, !1)
+      : window.attachEvent("load", initiateCall, !1);
   }
 };
 </script>

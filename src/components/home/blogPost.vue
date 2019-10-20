@@ -8,7 +8,8 @@
             <img
               :src="'https://calm-headland-54682.herokuapp.com/'+this.blog.blogImage"
               class="img-fluid"
-              alt
+              alt="alley
+              "
             />
             <h4>{{this.blog.title}}</h4>
             <small class="mb-5">{{this.blog.createdDate |moment}}</small>
