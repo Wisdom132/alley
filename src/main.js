@@ -13,8 +13,8 @@ Vue.use(moment);
 // });
 
 const http = axios.create({
-  baseURL: "https://calm-headland-54682.herokuapp.com/"
-  // baseURL: "http://localhost:3000"
+  // baseURL: " https://alleyng.herokuapp.com/"
+  baseURL: "http://localhost:3000"
 });
 Vue.prototype.$http = http;
 

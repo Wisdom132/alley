@@ -8,7 +8,7 @@
               <div class="row no-gutters">
                 <aside class="col-sm-6 border-right">
                   <article class="gallery-wrap p-3">
-                    <div class="img-big-wrap">
+                    <!-- <div class="img-big-wrap">
                       <div class="list text-center">
                         <img
                           @click="open($event)"
@@ -30,7 +30,7 @@
                           />
                         </div>
                       </div>
-                    </div>
+                    </div>-->
                     <hr />
                     <h5>
                       <b>User Detals</b>

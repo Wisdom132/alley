@@ -9,10 +9,7 @@
       <div class="col-md-4" v-for="(product, index) in newProduct" :key="index">
         <figure class="card card-product shadow mx-auto" style="width:18rem">
           <div class="img-wrap">
-            <img
-              :src="'https://calm-headland-54682.herokuapp.com/'+product.files[1].path"
-              class="card-image-top"
-            />
+            <img :src="product.files[0]" alt="hevhjr" class="card-image-top" />
           </div>
           <figcaption class="info-wrap container">
             <h4 class="title">{{product.name}}</h4>
@@ -34,7 +31,7 @@
           </div>
         </figure>
       </div>
-      <div class="text-center">
+      <!-- <div class="text-center">
         <p class="text-center mb-0">{{currentPage+1 }} / {{ pages }}</p>
         <ul class="pagination justify-content-center">
           <li class="page-item" :class="{disabled: prevUrl === ''}">
@@ -44,7 +41,7 @@
             <button class="page-link" @click="checkPage(nextUrl)">Next</button>
           </li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -98,9 +95,9 @@ export default {
         }
       });
     },
-    getProducts(page = 1) {
+    getProducts() {
       this.$http
-        .get("products?page" + page)
+        .get("products")
         .then(response => {
           // console.log(response);
 
@@ -111,11 +108,11 @@ export default {
           let decodedId = decoded.userId;
 
           // get vendor that created product
-          this.products = response.data.products;
-          this.currentPage = response.data.currentPage;
-          this.pages = response.data.pages;
-          this.nextUrl = response.data.nextUrl;
-          this.prevUrl = response.data.prevUrl;
+          this.products = response.data;
+          // this.currentPage = response.data.currentPage;
+          // this.pages = response.data.pages;
+          // this.nextUrl = response.data.nextUrl;
+          // this.prevUrl = response.data.prevUrl;
           console.log(this.products);
           const products = this.products;
           let id;
@@ -127,7 +124,9 @@ export default {
 
               if (id == decodedId) {
                 this.newProduct.push(product);
-                console.log(this.newProduct);
+                console.log({ vend: this.newProduct });
+              } else {
+                console.log("no product found");
               }
             });
           });
@@ -135,16 +134,16 @@ export default {
         .catch(error => {
           console.log(error);
         });
-    },
-    checkPage(url) {
-      this.$http.get(url).then(response => {
-        this.newProduct = response.data.products;
-        this.currentPage = response.data.currentPage;
-        this.pages = response.data.pages;
-        this.nextUrl = response.data.nextUrl;
-        this.prevUrl = response.data.prevUrl;
-      });
     }
+    // checkPage(url) {
+    //   this.$http.get(url).then(response => {
+    //     this.newProduct = response.data.products;
+    //     this.currentPage = response.data.currentPage;
+    //     this.pages = response.data.pages;
+    //     this.nextUrl = response.data.nextUrl;
+    //     this.prevUrl = response.data.prevUrl;
+    //   });
+    // }
   },
   created() {
     this.getProducts();

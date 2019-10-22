@@ -18,6 +18,7 @@
             <td>{{vendor.email}}</td>
             <td>{{vendor.phone}}</td>
             <td>
+              <!-- <button class="btn btn-primary" @click="deleteVenodr(vendor._id)">Delete</button> -->
               <router-link class="btn btn-primary" :to="'/vendors/'+vendor._id">View</router-link>
             </td>
           </tr>
@@ -45,6 +46,32 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    deleteVenodr(id) {
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to Get back this request!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(willDelete => {
+        if (willDelete) {
+          this.$http
+            .delete(`vendor/${id}`)
+            .then(response => {
+              console.log(response);
+              // this.$router.push({ path: "/admin/orders" });
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          swal("This Request has been Deleted", {
+            icon: "success"
+          });
+        } else {
+          swal("This Request hasn't been Deleted");
+        }
+      });
     }
   },
   created() {

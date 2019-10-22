@@ -58,10 +58,7 @@
             :key="index"
           >
             <div class="card mx-autot" style="width: auto;">
-              <img
-                :src="'https://calm-headland-54682.herokuapp.com/'+product.files[1].path"
-                class="card-image-top"
-              />
+              <img :src="product.files[0]" class="card-image-top" />
               <div class="card-body mb-2">
                 <h5 class="card-title mb-2">
                   <b>{{product.name}}</b>
@@ -82,7 +79,7 @@
             </div>
           </div>
         </div>
-        <p class="text-center mb-0">{{currentPage+1 }} / {{ pages }}</p>
+        <!-- <p class="text-center mb-0">{{currentPage+1 }} / {{ pages }}</p>
         <ul class="pagination justify-content-center">
           <li class="page-item" :class="{disabled: prevUrl === ''}">
             <button class="page-link" @click="checkPage(prevUrl)">Previous</button>
@@ -90,7 +87,7 @@
           <li class="page-item" :class="{disabled: nextUrl === ''}">
             <button class="page-link" @click="checkPage(nextUrl)">Next</button>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </div>
   </div>
@@ -116,11 +113,11 @@ export default {
       this.$http
         .get("products")
         .then(response => {
-          this.products = response.data.products;
-          this.currentPage = response.data.currentPage;
-          this.pages = response.data.pages;
-          this.nextUrl = response.data.nextUrl;
-          this.prevUrl = response.data.prevUrl;
+          this.products = response.data;
+          // this.currentPage = response.data.currentPage;
+          // this.pages = response.data.pages;
+          // this.nextUrl = response.data.nextUrl;
+          // this.prevUrl = response.data.prevUrl;
           console.log(this.pages);
         })
         .catch(err => {
@@ -128,15 +125,15 @@ export default {
         });
     },
 
-    checkPage(url) {
-      this.$http.get(url).then(response => {
-        this.products = response.data.products;
-        this.currentPage = response.data.currentPage;
-        this.pages = response.data.pages;
-        this.nextUrl = response.data.nextUrl;
-        this.prevUrl = response.data.prevUrl;
-      });
-    },
+    // checkPage(url) {
+    //   this.$http.get(url).then(response => {
+    //     this.products = response.data.products;
+    //     this.currentPage = response.data.currentPage;
+    //     this.pages = response.data.pages;
+    //     this.nextUrl = response.data.nextUrl;
+    //     this.prevUrl = response.data.prevUrl;
+    //   });
+    // },
     topCitites() {
       this.$http
         .get("products/query?city=" + this.citysearch)

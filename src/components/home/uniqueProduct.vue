@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-5">
     <!-- model section -->
     <div>
       <div
@@ -83,7 +83,8 @@
         <aside class="col-sm-6 border">
           <article class="gallery-wrap">
             <div class="img-big-wrap">
-              <div
+              <img :src="product.files" class="img-fluid" alt />
+              <!-- <div
                 class="list text-center"
                 v-for="(n, index) in imageList.slice(0,1)"
                 :data-index="index"
@@ -94,10 +95,9 @@
                   class="img-fluid"
                   :src="`https://calm-headland-54682.herokuapp.com/${n.path}`"
                 />
-              </div>
+              </div>-->
             </div>
-            <!-- slider-product.// -->
-            <div class="img-small-wrap">
+            <!-- <div class="img-small-wrap">
               <div
                 class="item-gallery"
                 v-for="(n, index) in imageList"
@@ -110,7 +110,7 @@
                   :src="`https://calm-headland-54682.herokuapp.com/${n.path}`"
                 />
               </div>
-            </div>
+            </div>-->
           </article>
         </aside>
         <aside class="col-sm-6 border">
@@ -200,8 +200,9 @@ export default {
       this.$http
         .get("products/" + id)
         .then(response => {
-          this.imageList = response.data.files;
+          // this.imageList = response.data.files;
           this.product = response.data;
+          console.log(this.product);
         })
         .catch(err => {
           console.log(err);

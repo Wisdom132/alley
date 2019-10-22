@@ -19,6 +19,7 @@
               <td>{{order.phone}}</td>
               <td>{{order.requestedDate | moment}}</td>
               <td>
+                <button class="btn btn-primary btn-sm" @click="deleteOrder(order._id)">delete</button>
                 <router-link :to="'/order/'+order._id" class="btn btn-primary btn-sm">Details</router-link>
               </td>
             </tr>
@@ -49,6 +50,31 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    deleteOrder(id) {
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to Get back this request!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+      }).then(willDelete => {
+        if (willDelete) {
+          this.$http
+            .delete(`orders/${id}`)
+            .then(response => {
+              this.$router.push({ path: "/admin/orders" });
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          swal("This Request has been Deleted", {
+            icon: "success"
+          });
+        } else {
+          swal("This Request hasn't been Deleted");
+        }
+      });
     }
   },
   filters: {
